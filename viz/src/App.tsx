@@ -17,6 +17,7 @@ interface Node {
   size?: number;
   shapeValue?: string;
   _index?: number;
+  [key: string]: unknown;
 }
 
 interface Edge {
@@ -30,6 +31,7 @@ interface Edge {
   status?: string;
   sourceIndex: number;
   targetIndex: number;
+  [key: string]: unknown;
 }
 
 interface NetworkData {
