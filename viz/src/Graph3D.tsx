@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-// @ts-expect-error — types declare a class but runtime exports a factory
-import ForceGraph3D from "3d-force-graph";
+import ForceGraph3DImport from "3d-force-graph";
+// Types declare a class constructor but runtime exports a factory function
+const ForceGraph3D = ForceGraph3DImport as unknown as (configOptions?: object) => (element: HTMLElement) => any;
 import * as THREE from "three";
 import SpriteText from "three-spritetext";
 

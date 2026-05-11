@@ -29,6 +29,7 @@ interface Edge {
   confidence: number;
   kind: string;
   weight: number;
+  width: number;
   color: string;
   status?: string;
   sourceIndex: number;
