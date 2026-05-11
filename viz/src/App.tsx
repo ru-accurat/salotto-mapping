@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, CosmographLinkColorStrategy } from "@cosmograph/react";
 import type { CosmographRef } from "@cosmograph/react";
+
+const Graph3D = lazy(() => import("./Graph3D"));
 
 interface Node {
   id: string;
@@ -52,6 +54,7 @@ function getNodeSize(node: Node): number {
 
 export default function App() {
   const [data, setData] = useState<NetworkData | null>(null);
+  const [mode, setMode] = useState<"2d" | "3d">("2d");
   const cosmographRef = useRef<CosmographRef>(undefined);
 
   useEffect(() => {
@@ -83,8 +86,46 @@ export default function App() {
     );
   }
 
+  const toggleButton = (
+    <button
+      onClick={() => setMode(mode === "2d" ? "3d" : "2d")}
+      style={{
+        position: "fixed",
+        top: 16,
+        right: 16,
+        zIndex: 1000,
+        background: "rgba(255,255,255,0.08)",
+        border: "1px solid rgba(255,255,255,0.2)",
+        borderRadius: 6,
+        color: "#ffffffcc",
+        padding: "6px 14px",
+        fontSize: 13,
+        fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+        cursor: "pointer",
+        backdropFilter: "blur(8px)",
+        transition: "background 0.2s",
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
+      onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
+    >
+      {mode === "2d" ? "3D" : "2D"}
+    </button>
+  );
+
+  if (mode === "3d") {
+    return (
+      <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
+        {toggleButton}
+        <Suspense fallback={null}>
+          <Graph3D nodes={data.nodes} edges={data.edges} />
+        </Suspense>
+      </div>
+    );
+  }
+
   return (
     <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
+      {toggleButton}
       <Cosmograph
         ref={cosmographRef}
         backgroundColor="#000000"
