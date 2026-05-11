@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
+// @ts-expect-error — types declare a class but runtime exports a factory
 import ForceGraph3D from "3d-force-graph";
 import * as THREE from "three";
 import SpriteText from "three-spritetext";
 
-interface Node {
+interface GraphNode {
   id: string;
   name: string;
   class: string;
@@ -12,7 +13,7 @@ interface Node {
   [key: string]: unknown;
 }
 
-interface Edge {
+interface GraphEdge {
   source: string;
   target: string;
   color: string;
@@ -30,12 +31,12 @@ const COLOR_MAP: Record<string, string> = {
 
 const MAX_LABELS = 300;
 
-function nodeRadius(n: Node): number {
+function nodeRadius(n: GraphNode): number {
   const s = n.size || 3;
   return Math.cbrt(s) * 0.8;
 }
 
-function makeNodeObject(n: Node): THREE.Object3D {
+function makeNodeObject(n: GraphNode): THREE.Object3D {
   const color = COLOR_MAP[n.class as string] || "#ffffff";
   const r = nodeRadius(n);
   const isOrg = n.shape === "hexagon";
@@ -54,9 +55,10 @@ function makeNodeObject(n: Node): THREE.Object3D {
   return mesh;
 }
 
-export default function Graph3D({ nodes, edges }: { nodes: Node[]; edges: Edge[] }) {
+export default function Graph3D({ nodes, edges }: { nodes: GraphNode[]; edges: GraphEdge[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const graphRef = useRef<ReturnType<typeof ForceGraph3D> | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const graphRef = useRef<any>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -67,7 +69,7 @@ export default function Graph3D({ nodes, edges }: { nodes: Node[]; edges: Edge[]
       .backgroundColor("#000000")
       .nodeId("id")
       .nodeLabel("")
-      .nodeThreeObject((n: Node) => {
+      .nodeThreeObject((n: GraphNode) => {
         const group = new THREE.Group();
         group.add(makeNodeObject(n));
 
@@ -86,13 +88,13 @@ export default function Graph3D({ nodes, edges }: { nodes: Node[]; edges: Edge[]
       })
       .linkSource("source")
       .linkTarget("target")
-      .linkColor((e: Edge) => e.color || "#4466bb")
-      .linkWidth((e: Edge) => e.width * 1.5)
+      .linkColor((e: GraphEdge) => e.color || "#4466bb")
+      .linkWidth((e: GraphEdge) => e.width * 1.5)
       .linkOpacity(0.5)
       .linkCurvature(0.35)
-      .linkCurveRotation((e: Edge) => {
-        const s = typeof e.source === "object" ? (e.source as Node).id : e.source;
-        const t = typeof e.target === "object" ? (e.target as Node).id : e.target;
+      .linkCurveRotation((e: GraphEdge) => {
+        const s = typeof e.source === "object" ? (e.source as GraphNode).id : e.source;
+        const t = typeof e.target === "object" ? (e.target as GraphNode).id : e.target;
         return (s + t).split("").reduce((a, c) => a + c.charCodeAt(0), 0) * 0.5;
       })
       .showNavInfo(false)
@@ -112,7 +114,7 @@ export default function Graph3D({ nodes, edges }: { nodes: Node[]; edges: Edge[]
       projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
       frustum.setFromProjectionMatrix(projScreenMatrix);
 
-      const graphNodes = graph.graphData().nodes as (Node & { x?: number; y?: number; z?: number })[];
+      const graphNodes = graph.graphData().nodes as (GraphNode & { x?: number; y?: number; z?: number })[];
 
       const visible: { id: string; dist: number }[] = [];
       for (const n of graphNodes) {
