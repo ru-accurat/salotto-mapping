@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+*.xlsx
+*.png
+pilot/
+archive/
+snapshots/
+.claude/
