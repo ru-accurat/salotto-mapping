@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
 import SpriteText from "three-spritetext";
 import type { ViewSettings, NodeColors } from "./settings";
+import { CameraDirector, createDefaultChoreography } from "./director";
+import type { GraphNode3D } from "./director";
 
 interface GraphNode {
   id: string;
@@ -23,6 +25,9 @@ interface GraphEdge {
 }
 
 const MAX_LABELS = 300;
+/** Distance threshold for label fade during animation */
+const LABEL_FADE_NEAR = 30;
+const LABEL_FADE_FAR = 120;
 
 function nodeClassKey(n: GraphNode): keyof NodeColors {
   if (n.class === "salotto") return "salotto";
@@ -37,19 +42,36 @@ function nodeRadius(n: GraphNode): number {
   return Math.cbrt(s) * 0.8;
 }
 
+export interface Graph3DHandle {
+  play: () => void;
+  stop: () => void;
+  preview: () => void;
+  exportVideo: () => void;
+}
+
 export default function Graph3D({
-  nodes, edges, settings,
+  nodes, edges, settings, animating, onAnimationOpacity,
 }: {
   nodes: GraphNode[];
   edges: GraphEdge[];
   settings: ViewSettings;
+  animating?: boolean;
+  onAnimationOpacity?: (opacity: number) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const graphRef = useRef<any>(null);
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
+  const animatingRef = useRef(animating ?? false);
+  animatingRef.current = animating ?? false;
+  const onAnimationOpacityRef = useRef(onAnimationOpacity);
+  onAnimationOpacityRef.current = onAnimationOpacity;
   const [error, setError] = useState<string | null>(null);
+  const directorRef = useRef<CameraDirector | null>(null);
+  const animStartRef = useRef<number>(0);
+  const animFrameRef = useRef<number>(0);
+  const labelSpritesRef = useRef<Map<string, THREE.Sprite>>(new Map());
 
   // Full rebuild when data changes
   useEffect(() => {
@@ -61,18 +83,16 @@ export default function Graph3D({
 
     (async () => {
       try {
-        // Dynamic import — avoids top-level module resolution issues that can
-        // silently break the component on cold loads in some bundler configs
         const mod = await import("3d-force-graph");
         if (destroyed) return;
 
-        // Runtime exports a factory fn, not a class constructor
         const ForceGraph3DFactory = mod.default as unknown as (
           configOptions?: object,
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ) => (element: HTMLElement) => any;
 
         const labelSprites = new Map<string, THREE.Sprite>();
+        labelSpritesRef.current = labelSprites;
         const s = settingsRef.current;
         let starFieldObj: THREE.Points | null = null;
 
@@ -99,6 +119,8 @@ export default function Graph3D({
             sprite.padding = 0.3;
             sprite.position.set(0, r + 1.5, 0);
             sprite.visible = false;
+            // Store as a property for opacity control
+            (sprite as unknown as { _baseColor: string })._baseColor = color;
             group.add(sprite);
 
             labelSprites.set(n.id, sprite);
@@ -119,8 +141,6 @@ export default function Graph3D({
           .d3VelocityDecay(0.3)
           .showNavInfo(false)
           .graphData({
-            // Build clean node objects — strip everything that could conflict
-            // with d3-force internals (index, x, y, vx, vy, fx, fy, etc.)
             nodes: nodes.map((n) => ({
               id: n.id,
               name: n.name,
@@ -185,9 +205,12 @@ export default function Graph3D({
 
         setTimeout(createStarField, 100);
 
+        // Label update — works in both normal and animation mode
         const updateLabels = () => {
           const showLabels = settingsRef.current.showLabels;
-          if (!showLabels) {
+          const isAnimating = animatingRef.current;
+
+          if (!showLabels && !isAnimating) {
             for (const [, sprite] of labelSprites) sprite.visible = false;
             return;
           }
@@ -209,17 +232,51 @@ export default function Graph3D({
             }
           }
           visible.sort((a, b) => a.dist - b.dist);
-          const showSet = new Set(visible.slice(0, MAX_LABELS).map((v) => v.id));
-          for (const [id, sprite] of labelSprites) {
-            sprite.visible = showSet.has(id);
+
+          if (isAnimating) {
+            // During animation: distance-based fade
+            const showSet = new Set(visible.slice(0, MAX_LABELS).map((v) => v.id));
+            for (const [id, sprite] of labelSprites) {
+              const entry = visible.find((v) => v.id === id);
+              if (!entry || !showSet.has(id)) {
+                sprite.visible = false;
+                continue;
+              }
+              // Fade based on distance
+              const t = Math.max(0, Math.min(1, (entry.dist - LABEL_FADE_NEAR) / (LABEL_FADE_FAR - LABEL_FADE_NEAR)));
+              const alpha = 1 - t;
+              if (alpha < 0.05) {
+                sprite.visible = false;
+              } else {
+                sprite.visible = true;
+                // Adjust sprite material opacity
+                const mat = sprite.material as THREE.SpriteMaterial;
+                if (mat) mat.opacity = alpha;
+              }
+            }
+          } else {
+            // Normal mode: show/hide based on showLabels setting
+            if (!showLabels) {
+              for (const [, sprite] of labelSprites) sprite.visible = false;
+              return;
+            }
+            const showSet = new Set(visible.slice(0, MAX_LABELS).map((v) => v.id));
+            for (const [id, sprite] of labelSprites) {
+              sprite.visible = showSet.has(id);
+              const mat = sprite.material as THREE.SpriteMaterial;
+              if (mat) mat.opacity = 1;
+            }
           }
         };
 
-        const controls = graph.controls() as { addEventListener?: (event: string, cb: () => void) => void };
+        const controls = graph.controls() as {
+          addEventListener?: (event: string, cb: () => void) => void;
+          enabled?: boolean;
+        };
         if (controls.addEventListener) {
           controls.addEventListener("change", updateLabels);
         }
-        const interval = setInterval(updateLabels, 500);
+        const interval = setInterval(updateLabels, 200);
 
         const handleResize = () => {
           graph.width(window.innerWidth);
@@ -230,6 +287,7 @@ export default function Graph3D({
         cleanup = () => {
           clearInterval(interval);
           window.removeEventListener("resize", handleResize);
+          if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
           graph._destructor();
           graphRef.current = null;
         };
@@ -247,9 +305,69 @@ export default function Graph3D({
     };
   }, [nodes, edges]);
 
+  // Start/stop animation when animating prop changes
+  useEffect(() => {
+    const graph = graphRef.current;
+    if (!graph) return;
+
+    if (animating) {
+      // Dampen simulation for gentle breathing
+      graph.d3AlphaDecay(0.08);
+      graph.d3VelocityDecay(0.6);
+
+      // Disable orbit controls
+      const controls = graph.controls() as { enabled?: boolean };
+      if (controls) controls.enabled = false;
+
+      // Create director
+      const choreo = createDefaultChoreography();
+      const director = new CameraDirector(choreo.waypoints, choreo.fadeIn, choreo.fadeOut);
+
+      // Resolve targets from current node positions
+      const graphNodes = graph.graphData().nodes as GraphNode3D[];
+      director.resolveTargets(graphNodes);
+      directorRef.current = director;
+      animStartRef.current = performance.now();
+
+      // Animation loop
+      const animate = () => {
+        if (!animatingRef.current || !graphRef.current) return;
+
+        const elapsed = (performance.now() - animStartRef.current) / 1000;
+        const state = director.update(elapsed);
+
+        // Move camera
+        const camera = graphRef.current.camera() as THREE.PerspectiveCamera;
+        camera.position.copy(state.position);
+        camera.lookAt(state.lookAt);
+
+        // Report opacity for vignette fade
+        onAnimationOpacityRef.current?.(state.opacity);
+
+        animFrameRef.current = requestAnimationFrame(animate);
+      };
+
+      animFrameRef.current = requestAnimationFrame(animate);
+
+      return () => {
+        if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+
+        // Restore controls
+        if (graph) {
+          const c = graph.controls() as { enabled?: boolean };
+          if (c) c.enabled = true;
+          graph.d3AlphaDecay(0.02);
+          graph.d3VelocityDecay(0.3);
+        }
+        directorRef.current = null;
+        onAnimationOpacityRef.current?.(1);
+      };
+    }
+  }, [animating]);
+
   // React to gravity changes without full rebuild
   useEffect(() => {
-    if (!graphRef.current) return;
+    if (!graphRef.current || animatingRef.current) return;
     graphRef.current.d3Force("charge")?.strength(-30 * (1 + settings.gravity));
     graphRef.current.d3ReheatSimulation();
   }, [settings.gravity]);

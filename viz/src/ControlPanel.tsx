@@ -74,9 +74,11 @@ function ColorRow({ label, value, onChange }: {
 export default function ControlPanel({
   settings,
   onChange,
+  onPlay,
 }: {
   settings: ViewSettings;
   onChange: (s: ViewSettings) => void;
+  onPlay?: () => void;
 }) {
   const [collapsed, setCollapsed] = useState(false);
   const [presets, setPresets] = useState<Preset[]>(loadPresets);
@@ -321,6 +323,26 @@ export default function ControlPanel({
               1 = linear · &gt;1 amplifies difference · &lt;1 flattens
             </div>
           </Section>
+
+          {/* Animation (3D only) */}
+          {settings.mode === "3d" && onPlay && (
+            <Section title="Animation">
+              <button
+                onClick={onPlay}
+                style={{
+                  width: "100%", padding: "6px 0", fontSize: 12, cursor: "pointer",
+                  border: "1px solid rgba(95,230,200,0.3)", borderRadius: 4,
+                  background: "rgba(95,230,200,0.15)", color: "#5fe6c8",
+                  fontFamily: FONT, fontWeight: 500,
+                }}
+              >
+                ▶ Play animation
+              </button>
+              <div style={{ fontSize: 9, color: "#ffffff44", marginTop: 4 }}>
+                2-min camera flight with vignette. Press ESC to stop.
+              </div>
+            </Section>
+          )}
         </div>
       )}
     </div>

@@ -7,9 +7,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 39,
-      "x": -499.0,
-      "y": 378.0,
+      "degree": 40,
+      "x": -266.81,
+      "y": 366.22,
       "_index": 0
     },
     {
@@ -19,9 +19,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 33,
-      "x": -408.02,
-      "y": 46.96,
+      "degree": 34,
+      "x": -390.31,
+      "y": 3.46,
       "_index": 1
     },
     {
@@ -31,9 +31,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 39,
-      "x": -628.25,
-      "y": 343.12,
+      "degree": 40,
+      "x": -393.68,
+      "y": 473.69,
       "_index": 2
     },
     {
@@ -43,9 +43,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 68,
-      "x": -262.58,
-      "y": 601.15,
+      "degree": 69,
+      "x": -548.0,
+      "y": 393.44,
       "_index": 3
     },
     {
@@ -55,9 +55,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 44,
-      "x": -331.84,
-      "y": -196.84,
+      "degree": 45,
+      "x": -300.05,
+      "y": -212.6,
       "_index": 4
     },
     {
@@ -67,9 +67,9 @@
       "shape": "circle",
       "member_status": "co_founder",
       "primary_role": null,
-      "degree": 77,
-      "x": 18.46,
-      "y": 497.83,
+      "degree": 78,
+      "x": -8.84,
+      "y": 508.3,
       "_index": 5
     },
     {
@@ -80,8 +80,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 30,
-      "x": -215.61,
-      "y": 75.39,
+      "x": -203.73,
+      "y": 65.49,
       "_index": 6
     },
     {
@@ -92,8 +92,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 31,
-      "x": -668.27,
-      "y": 150.87,
+      "x": -680.34,
+      "y": 145.77,
       "_index": 7
     },
     {
@@ -104,8 +104,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 40,
-      "x": -563.41,
-      "y": -177.31,
+      "x": -541.09,
+      "y": -210.74,
       "_index": 8
     },
     {
@@ -116,8 +116,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 33,
-      "x": -361.44,
-      "y": 279.99,
+      "x": -449.01,
+      "y": 146.07,
       "_index": 9
     },
     {
@@ -128,8 +128,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 20,
-      "x": -274.9,
-      "y": 87.53,
+      "x": -267.33,
+      "y": 55.0,
       "_index": 10
     },
     {
@@ -140,8 +140,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 28,
-      "x": -649.17,
-      "y": 32.41,
+      "x": -637.19,
+      "y": 2.44,
       "_index": 11
     },
     {
@@ -152,8 +152,8 @@
       "member_status": "member",
       "primary_role": "data scientist",
       "degree": 19,
-      "x": -329.58,
-      "y": 119.37,
+      "x": -278.48,
+      "y": 162.45,
       "_index": 12
     },
     {
@@ -164,8 +164,8 @@
       "member_status": "member",
       "primary_role": null,
       "degree": 20,
-      "x": -313.71,
-      "y": 167.28,
+      "x": -309.88,
+      "y": 152.22,
       "_index": 13
     },
     {
@@ -176,8 +176,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 23.4,
-      "y": -380.26,
+      "x": 150.37,
+      "y": -107.73,
       "_index": 14
     },
     {
@@ -188,8 +188,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 672.57,
-      "y": -984.53,
+      "x": 1002.04,
+      "y": -744.09,
       "_index": 15
     },
     {
@@ -200,8 +200,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1296.25,
-      "y": -47.59,
+      "x": 1269.92,
+      "y": 100.62,
       "_index": 16
     },
     {
@@ -212,8 +212,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 218.66,
-      "y": -948.79,
+      "x": 323.85,
+      "y": -898.89,
       "_index": 17
     },
     {
@@ -224,8 +224,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1076.37,
-      "y": -818.34,
+      "x": 1150.06,
+      "y": -689.06,
       "_index": 18
     },
     {
@@ -236,8 +236,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1116.5,
-      "y": -630.89,
+      "x": 1233.82,
+      "y": -304.51,
       "_index": 19
     },
     {
@@ -248,8 +248,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 153.5,
-      "y": -503.18,
+      "x": 210.95,
+      "y": -504.94,
       "_index": 20
     },
     {
@@ -260,8 +260,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 923.57,
-      "y": -1037.97,
+      "x": 959.15,
+      "y": -980.59,
       "_index": 21
     },
     {
@@ -272,8 +272,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 110.28,
-      "y": -911.2,
+      "x": 189.34,
+      "y": -918.08,
       "_index": 22
     },
     {
@@ -284,8 +284,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1173.69,
-      "y": -262.95,
+      "x": 1226.06,
+      "y": -198.4,
       "_index": 23
     },
     {
@@ -296,8 +296,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 283.67,
-      "y": -28.19,
+      "x": 231.89,
+      "y": -121.48,
       "_index": 24
     },
     {
@@ -308,8 +308,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 478.55,
-      "y": 135.6,
+      "x": 469.0,
+      "y": 212.71,
       "_index": 25
     },
     {
@@ -320,8 +320,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 7,
-      "x": 1377.63,
-      "y": -585.79,
+      "x": 1381.54,
+      "y": -543.7,
       "_index": 26
     },
     {
@@ -332,8 +332,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1200.27,
-      "y": -404.07,
+      "x": 1178.56,
+      "y": -254.06,
       "_index": 27
     },
     {
@@ -344,8 +344,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1140.5,
-      "y": 1.17,
+      "x": 1116.83,
+      "y": 137.0,
       "_index": 28
     },
     {
@@ -356,8 +356,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 414.95,
-      "y": -767.47,
+      "x": 563.52,
+      "y": -717.9,
       "_index": 29
     },
     {
@@ -368,8 +368,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 777.66,
-      "y": 90.17,
+      "x": 708.25,
+      "y": 79.38,
       "_index": 30
     },
     {
@@ -380,8 +380,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 843.97,
-      "y": -960.15,
+      "x": 904.52,
+      "y": -876.7,
       "_index": 31
     },
     {
@@ -392,8 +392,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 736.26,
-      "y": -247.28,
+      "x": 647.61,
+      "y": -343.18,
       "_index": 32
     },
     {
@@ -404,8 +404,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 368.15,
-      "y": 201.05,
+      "x": 254.49,
+      "y": 107.27,
       "_index": 33
     },
     {
@@ -416,8 +416,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 1303.6,
-      "y": -228.82,
+      "x": 1303.44,
+      "y": -82.72,
       "_index": 34
     },
     {
@@ -428,8 +428,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 122.2,
-      "y": -693.23,
+      "x": 188.42,
+      "y": -671.7,
       "_index": 35
     },
     {
@@ -440,8 +440,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 390.68,
-      "y": 8.54,
+      "x": 407.1,
+      "y": 140.95,
       "_index": 36
     },
     {
@@ -452,8 +452,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 231.8,
-      "y": -326.45,
+      "x": 647.7,
+      "y": 385.29,
       "_index": 37
     },
     {
@@ -464,8 +464,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 1152.19,
-      "y": -1078.58,
+      "x": 1219.03,
+      "y": -964.25,
       "_index": 38
     },
     {
@@ -476,8 +476,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 598.62,
-      "y": -598.87,
+      "x": 806.28,
+      "y": -550.85,
       "_index": 39
     },
     {
@@ -488,8 +488,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 388.12,
-      "y": 100.43,
+      "x": 361.56,
+      "y": 56.04,
       "_index": 40
     },
     {
@@ -500,8 +500,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 660.67,
-      "y": -1177.77,
+      "x": 763.65,
+      "y": -1096.67,
       "_index": 41
     },
     {
@@ -512,8 +512,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 803.99,
-      "y": -686.85,
+      "x": 819.17,
+      "y": -649.34,
       "_index": 42
     },
     {
@@ -524,8 +524,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 584.44,
-      "y": 57.88,
+      "x": 501.95,
+      "y": -10.82,
       "_index": 43
     },
     {
@@ -536,8 +536,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1286.22,
-      "y": -166.13,
+      "x": 1277.28,
+      "y": -22.29,
       "_index": 44
     },
     {
@@ -548,8 +548,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 240.3,
-      "y": 212.32,
+      "x": 327.77,
+      "y": 345.23,
       "_index": 45
     },
     {
@@ -560,8 +560,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 540.42,
-      "y": 247.78,
+      "x": 168.82,
+      "y": -234.69,
       "_index": 46
     },
     {
@@ -572,8 +572,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1175.72,
-      "y": -113.97,
+      "x": 1161.2,
+      "y": 25.1,
       "_index": 47
     },
     {
@@ -584,8 +584,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 118.11,
-      "y": 154.99,
+      "x": 130.87,
+      "y": 194.92,
       "_index": 48
     },
     {
@@ -596,8 +596,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 488.48,
-      "y": -1025.65,
+      "x": 574.34,
+      "y": -964.13,
       "_index": 49
     },
     {
@@ -608,8 +608,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1194.0,
-      "y": -333.11,
+      "x": 1186.44,
+      "y": -129.09,
       "_index": 50
     },
     {
@@ -620,8 +620,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 617.62,
-      "y": -741.51,
+      "x": 721.88,
+      "y": -615.25,
       "_index": 51
     },
     {
@@ -632,8 +632,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1066.47,
-      "y": -683.12,
+      "x": 1191.18,
+      "y": -364.23,
       "_index": 52
     },
     {
@@ -644,8 +644,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 1144.92,
-      "y": -462.66,
+      "x": 1140.32,
+      "y": -462.22,
       "_index": 53
     },
     {
@@ -656,8 +656,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 901.39,
-      "y": -735.78,
+      "x": 905.35,
+      "y": -712.19,
       "_index": 54
     },
     {
@@ -668,8 +668,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 682.74,
-      "y": -38.12,
+      "x": 741.15,
+      "y": 131.72,
       "_index": 55
     },
     {
@@ -680,8 +680,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 446.59,
-      "y": -13.27,
+      "x": 433.98,
+      "y": 8.63,
       "_index": 56
     },
     {
@@ -692,8 +692,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 912.95,
-      "y": -368.34,
+      "x": 956.98,
+      "y": -215.37,
       "_index": 57
     },
     {
@@ -704,8 +704,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 774.73,
-      "y": -592.17,
+      "x": 825.06,
+      "y": -308.44,
       "_index": 58
     },
     {
@@ -716,8 +716,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 466.62,
-      "y": 255.67,
+      "x": 299.83,
+      "y": 158.0,
       "_index": 59
     },
     {
@@ -728,8 +728,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 834.74,
-      "y": -356.1,
+      "x": 883.39,
+      "y": -116.22,
       "_index": 60
     },
     {
@@ -740,8 +740,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 541.9,
-      "y": -700.97,
+      "x": 487.63,
+      "y": -701.3,
       "_index": 61
     },
     {
@@ -752,8 +752,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 483.38,
-      "y": -786.21,
+      "x": 744.12,
+      "y": -510.61,
       "_index": 62
     },
     {
@@ -764,8 +764,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 1050.58,
-      "y": -454.51,
+      "x": 1064.19,
+      "y": -423.22,
       "_index": 63
     },
     {
@@ -776,8 +776,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 415.47,
-      "y": 297.96,
+      "x": -123.2,
+      "y": -382.75,
       "_index": 64
     },
     {
@@ -788,8 +788,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 646.08,
-      "y": -671.31,
+      "x": 835.14,
+      "y": -482.63,
       "_index": 65
     },
     {
@@ -800,8 +800,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 447.42,
-      "y": -695.76,
+      "x": 678.33,
+      "y": -546.67,
       "_index": 66
     },
     {
@@ -812,8 +812,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 519.06,
-      "y": -50.55,
+      "x": 544.41,
+      "y": 97.04,
       "_index": 67
     },
     {
@@ -824,8 +824,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1161.6,
-      "y": -550.64,
+      "x": 1160.25,
+      "y": -535.31,
       "_index": 68
     },
     {
@@ -836,8 +836,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 1044.96,
-      "y": -150.77,
+      "x": 1038.15,
+      "y": -10.86,
       "_index": 69
     },
     {
@@ -848,8 +848,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 1130.91,
-      "y": -857.79,
+      "x": 1210.74,
+      "y": -718.71,
       "_index": 70
     },
     {
@@ -860,8 +860,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 682.04,
-      "y": 243.15,
+      "x": 666.12,
+      "y": 272.5,
       "_index": 71
     },
     {
@@ -872,8 +872,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 573.04,
-      "y": -210.64,
+      "x": 606.26,
+      "y": -133.92,
       "_index": 72
     },
     {
@@ -884,8 +884,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 738.56,
-      "y": -518.21,
+      "x": 886.02,
+      "y": -261.49,
       "_index": 73
     },
     {
@@ -896,8 +896,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 553.86,
-      "y": -781.51,
+      "x": 620.9,
+      "y": -600.07,
       "_index": 74
     },
     {
@@ -908,8 +908,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 489.07,
-      "y": 59.86,
+      "x": 343.28,
+      "y": -141.93,
       "_index": 75
     },
     {
@@ -920,8 +920,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 6,
-      "x": 431.28,
-      "y": 62.45,
+      "x": 361.12,
+      "y": -25.96,
       "_index": 76
     },
     {
@@ -932,8 +932,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 576.34,
-      "y": -1005.09,
+      "x": 662.58,
+      "y": -943.3,
       "_index": 77
     },
     {
@@ -944,8 +944,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 978.2,
-      "y": -62.55,
+      "x": 620.51,
+      "y": -674.41,
       "_index": 78
     },
     {
@@ -956,8 +956,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 907.79,
-      "y": -297.07,
+      "x": 913.67,
+      "y": -48.46,
       "_index": 79
     },
     {
@@ -968,8 +968,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 318.05,
-      "y": -105.54,
+      "x": 311.14,
+      "y": -113.22,
       "_index": 80
     },
     {
@@ -980,8 +980,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 755.39,
-      "y": -422.07,
+      "x": 749.13,
+      "y": -426.0,
       "_index": 81
     },
     {
@@ -992,8 +992,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 657.88,
-      "y": -159.78,
+      "x": 690.84,
+      "y": -2.19,
       "_index": 82
     },
     {
@@ -1004,8 +1004,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 717.49,
-      "y": 2.71,
+      "x": 707.98,
+      "y": 165.06,
       "_index": 83
     },
     {
@@ -1016,8 +1016,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 772.05,
-      "y": -892.14,
+      "x": 760.32,
+      "y": -872.59,
       "_index": 84
     },
     {
@@ -1028,8 +1028,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 968.83,
-      "y": -699.04,
+      "x": 1021.42,
+      "y": -616.54,
       "_index": 85
     },
     {
@@ -1040,8 +1040,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 548.75,
-      "y": 157.31,
+      "x": 468.2,
+      "y": 115.63,
       "_index": 86
     },
     {
@@ -1052,8 +1052,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 710.11,
-      "y": -635.2,
+      "x": 894.09,
+      "y": -439.5,
       "_index": 87
     },
     {
@@ -1064,8 +1064,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 4,
-      "x": 734.6,
-      "y": 174.24,
+      "x": 620.72,
+      "y": 129.71,
       "_index": 88
     },
     {
@@ -1076,8 +1076,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 840.72,
-      "y": -542.66,
+      "x": 914.94,
+      "y": -362.47,
       "_index": 89
     },
     {
@@ -1088,8 +1088,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 320.93,
-      "y": -183.05,
+      "x": 372.46,
+      "y": -101.26,
       "_index": 90
     },
     {
@@ -1100,8 +1100,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 904.5,
-      "y": -230.07,
+      "x": 954.16,
+      "y": -139.9,
       "_index": 91
     },
     {
@@ -1112,8 +1112,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 53.12,
-      "y": -582.03,
+      "x": 109.39,
+      "y": -566.04,
       "_index": 92
     },
     {
@@ -1124,8 +1124,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 883.65,
-      "y": -444.84,
+      "x": 951.34,
+      "y": -297.58,
       "_index": 93
     },
     {
@@ -1136,8 +1136,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 663.95,
-      "y": -547.23,
+      "x": 829.25,
+      "y": -387.95,
       "_index": 94
     },
     {
@@ -1148,8 +1148,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 520.12,
-      "y": -641.24,
+      "x": 525.69,
+      "y": -647.92,
       "_index": 95
     },
     {
@@ -1160,8 +1160,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 2,
-      "x": 704.77,
-      "y": -755.53,
+      "x": 690.86,
+      "y": -722.22,
       "_index": 96
     },
     {
@@ -1172,8 +1172,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 5,
-      "x": 393.51,
-      "y": -111.28,
+      "x": 284.41,
+      "y": -263.94,
       "_index": 97
     },
     {
@@ -1184,8 +1184,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 3,
-      "x": 184.04,
-      "y": -545.12,
+      "x": 247.61,
+      "y": -542.4,
       "_index": 98
     },
     {
@@ -1196,8 +1196,8 @@
       "member_status": "none",
       "primary_role": null,
       "degree": 1,
-      "x": 816.91,
-      "y": -471.7,
+      "x": 859.09,
+      "y": -190.55,
       "_index": 99
     },
     {
@@ -1208,8 +1208,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 89.99,
-      "y": 945.6,
+      "x": 24.77,
+      "y": 981.65,
       "_index": 100
     },
     {
@@ -1220,8 +1220,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -920.2,
-      "y": -365.69,
+      "x": -893.98,
+      "y": -411.14,
       "_index": 101
     },
     {
@@ -1232,8 +1232,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 7,
-      "x": -310.08,
-      "y": 260.46,
+      "x": -292.28,
+      "y": 232.88,
       "_index": 102
     },
     {
@@ -1244,8 +1244,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 5,
-      "x": -500.21,
-      "y": 76.38,
+      "x": -509.01,
+      "y": 11.71,
       "_index": 103
     },
     {
@@ -1256,8 +1256,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": -832.29,
-      "y": -214.78,
+      "x": -836.66,
+      "y": -251.23,
       "_index": 104
     },
     {
@@ -1268,8 +1268,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": -786.92,
-      "y": -259.48,
+      "x": -787.43,
+      "y": -282.09,
       "_index": 105
     },
     {
@@ -1280,8 +1280,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": 915.54,
-      "y": 289.39,
+      "x": 819.44,
+      "y": 255.56,
       "_index": 106
     },
     {
@@ -1292,8 +1292,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": -85.85,
-      "y": -243.86,
+      "x": 9.65,
+      "y": -122.17,
       "_index": 107
     },
     {
@@ -1304,8 +1304,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 18.17,
-      "y": -784.63,
+      "x": 300.88,
+      "y": -395.79,
       "_index": 108
     },
     {
@@ -1316,8 +1316,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1576.56,
-      "y": -12.66,
+      "x": 1541.3,
+      "y": 167.63,
       "_index": 109
     },
     {
@@ -1328,8 +1328,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 863.41,
-      "y": 420.4,
+      "x": 833.82,
+      "y": 503.33,
       "_index": 110
     },
     {
@@ -1340,8 +1340,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1031.32,
-      "y": -1340.82,
+      "x": 1128.0,
+      "y": -1217.97,
       "_index": 111
     },
     {
@@ -1352,8 +1352,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 122.22,
-      "y": -1322.36,
+      "x": 239.03,
+      "y": -1328.97,
       "_index": 112
     },
     {
@@ -1364,8 +1364,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1478.78,
-      "y": -1346.25,
+      "x": 1558.41,
+      "y": -1205.32,
       "_index": 113
     },
     {
@@ -1376,8 +1376,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1425.28,
-      "y": -905.96,
+      "x": 1600.54,
+      "y": -431.61,
       "_index": 114
     },
     {
@@ -1388,8 +1388,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 5,
-      "x": 852.9,
-      "y": -37.85,
+      "x": 534.01,
+      "y": -523.55,
       "_index": 115
     },
     {
@@ -1400,8 +1400,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": 1191.28,
-      "y": 71.74,
+      "x": 678.71,
+      "y": -844.97,
       "_index": 116
     },
     {
@@ -1412,8 +1412,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1551.83,
-      "y": -550.35,
+      "x": 1542.29,
+      "y": -557.04,
       "_index": 117
     },
     {
@@ -1424,8 +1424,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 239.65,
-      "y": -1370.0,
+      "x": 381.34,
+      "y": -1305.7,
       "_index": 118
     },
     {
@@ -1436,8 +1436,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 818.36,
-      "y": -1408.51,
+      "x": 1318.35,
+      "y": -1068.94,
       "_index": 119
     },
     {
@@ -1448,8 +1448,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -1011.98,
-      "y": 492.54,
+      "x": -503.89,
+      "y": 837.43,
       "_index": 120
     },
     {
@@ -1460,8 +1460,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -971.12,
-      "y": 601.7,
+      "x": -595.02,
+      "y": 810.55,
       "_index": 121
     },
     {
@@ -1472,8 +1472,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -1024.06,
-      "y": -98.93,
+      "x": -990.1,
+      "y": -198.47,
       "_index": 122
     },
     {
@@ -1484,8 +1484,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -1005.72,
-      "y": -163.57,
+      "x": -1008.52,
+      "y": -134.89,
       "_index": 123
     },
     {
@@ -1496,8 +1496,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": -1192.69,
-      "y": 201.83,
+      "x": -1188.14,
+      "y": 305.72,
       "_index": 124
     },
     {
@@ -1508,8 +1508,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 2,
-      "x": 1346.88,
-      "y": -1014.65,
+      "x": 1438.36,
+      "y": -843.71,
       "_index": 125
     },
     {
@@ -1520,8 +1520,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 740.46,
-      "y": 317.64,
+      "x": -71.69,
+      "y": -792.5,
       "_index": 126
     },
     {
@@ -1532,8 +1532,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 717.07,
-      "y": 137.86,
+      "x": -133.09,
+      "y": -873.33,
       "_index": 127
     },
     {
@@ -1544,8 +1544,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1527.3,
-      "y": -855.47,
+      "x": 1698.88,
+      "y": -352.61,
       "_index": 128
     },
     {
@@ -1556,8 +1556,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 994.66,
-      "y": -1269.44,
+      "x": 942.9,
+      "y": -1276.27,
       "_index": 129
     },
     {
@@ -1568,8 +1568,8 @@
       "member_status": "ambient",
       "primary_role": null,
       "degree": 1,
-      "x": 1654.31,
-      "y": -375.72,
+      "x": 1629.81,
+      "y": -90.02,
       "_index": 130
     },
     {
@@ -1580,8 +1580,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": -94.3,
-      "y": -70.09,
+      "x": -146.03,
+      "y": -182.76,
       "_index": 131
     },
     {
@@ -1592,8 +1592,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 2,
-      "x": 1038.22,
-      "y": 265.45,
+      "x": 929.5,
+      "y": 240.04,
       "_index": 132
     },
     {
@@ -1604,8 +1604,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 3,
-      "x": 1030.46,
-      "y": -524.7,
+      "x": 989.75,
+      "y": -553.68,
       "_index": 133
     },
     {
@@ -1616,8 +1616,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 1760.97,
-      "y": -778.71,
+      "x": 1765.3,
+      "y": -730.93,
       "_index": 134
     },
     {
@@ -1628,8 +1628,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 4,
-      "x": 454.85,
-      "y": 170.39,
+      "x": 475.48,
+      "y": 279.59,
       "_index": 135
     },
     {
@@ -1640,8 +1640,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 2,
-      "x": 1247.33,
-      "y": -928.46,
+      "x": 1311.21,
+      "y": -813.06,
       "_index": 136
     },
     {
@@ -1652,8 +1652,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 3,
-      "x": -163.82,
-      "y": 474.73,
+      "x": -263.94,
+      "y": 448.49,
       "_index": 137
     },
     {
@@ -1664,8 +1664,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 2,
-      "x": 301.92,
-      "y": 492.04,
+      "x": 307.59,
+      "y": 574.96,
       "_index": 138
     },
     {
@@ -1676,8 +1676,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 6,
-      "x": -149.7,
-      "y": 189.79,
+      "x": -156.29,
+      "y": 152.47,
       "_index": 139
     },
     {
@@ -1688,8 +1688,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 3,
-      "x": 135.46,
-      "y": -89.97,
+      "x": 168.78,
+      "y": 56.92,
       "_index": 140
     },
     {
@@ -1700,8 +1700,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 651.42,
-      "y": 86.0,
+      "x": -133.98,
+      "y": -798.72,
       "_index": 141
     },
     {
@@ -1712,8 +1712,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 1553.61,
-      "y": -726.22,
+      "x": 1544.92,
+      "y": -720.78,
       "_index": 142
     },
     {
@@ -1724,8 +1724,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 1051.43,
-      "y": 489.82,
+      "x": 1023.11,
+      "y": 510.41,
       "_index": 143
     },
     {
@@ -1736,8 +1736,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 2,
-      "x": 1053.16,
-      "y": -1068.49,
+      "x": 1088.38,
+      "y": -1018.1,
       "_index": 144
     },
     {
@@ -1748,8 +1748,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 656.73,
-      "y": -1407.52,
+      "x": 777.49,
+      "y": -1332.3,
       "_index": 145
     },
     {
@@ -1760,8 +1760,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 10,
-      "x": 338.13,
-      "y": 263.91,
+      "x": 183.97,
+      "y": 129.99,
       "_index": 146
     },
     {
@@ -1772,8 +1772,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 4,
-      "x": 196.5,
-      "y": 499.54,
+      "x": -140.68,
+      "y": 70.99,
       "_index": 147
     },
     {
@@ -1784,8 +1784,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 2,
-      "x": 1522.45,
-      "y": -661.61,
+      "x": 1519.35,
+      "y": -646.88,
       "_index": 148
     },
     {
@@ -1796,8 +1796,8 @@
       "org_type": "",
       "member_status": null,
       "degree": 1,
-      "x": 271.74,
-      "y": -688.65,
+      "x": 979.76,
+      "y": 666.02,
       "_index": 149
     },
     {
@@ -1808,8 +1808,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 2,
-      "x": -179.9,
-      "y": 543.65,
+      "x": -202.75,
+      "y": 387.89,
       "_index": 150
     },
     {
@@ -1820,8 +1820,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 8,
-      "x": 222.73,
-      "y": 174.39,
+      "x": 203.93,
+      "y": 201.12,
       "_index": 151
     },
     {
@@ -1832,8 +1832,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 334.33,
-      "y": 865.33,
+      "x": 284.34,
+      "y": 934.49,
       "_index": 152
     },
     {
@@ -1844,8 +1844,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 3,
-      "x": -276.06,
-      "y": -479.76,
+      "x": -229.51,
+      "y": -489.93,
       "_index": 153
     },
     {
@@ -1856,8 +1856,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -962.67,
-      "y": -652.23,
+      "x": -878.11,
+      "y": -747.02,
       "_index": 154
     },
     {
@@ -1868,8 +1868,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1087.47,
-      "y": -568.22,
+      "x": -986.85,
+      "y": -630.13,
       "_index": 155
     },
     {
@@ -1880,8 +1880,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 1,
-      "x": -828.27,
-      "y": -446.77,
+      "x": -763.31,
+      "y": -537.41,
       "_index": 156
     },
     {
@@ -1892,8 +1892,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 1,
-      "x": -861.02,
-      "y": -721.9,
+      "x": -813.35,
+      "y": -764.56,
       "_index": 157
     },
     {
@@ -1904,8 +1904,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -894.23,
-      "y": -535.93,
+      "x": -858.12,
+      "y": -581.12,
       "_index": 158
     },
     {
@@ -1916,8 +1916,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 7,
-      "x": -4.71,
-      "y": -274.81,
+      "x": -3.6,
+      "y": -318.95,
       "_index": 159
     },
     {
@@ -1928,8 +1928,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 2,
-      "x": -230.09,
-      "y": -654.7,
+      "x": -168.85,
+      "y": -651.52,
       "_index": 160
     },
     {
@@ -1940,8 +1940,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1024.46,
-      "y": -643.35,
+      "x": -978.15,
+      "y": -690.76,
       "_index": 161
     },
     {
@@ -1952,8 +1952,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -259.71,
-      "y": 931.78,
+      "x": -725.49,
+      "y": 772.39,
       "_index": 162
     },
     {
@@ -1964,8 +1964,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -172.08,
-      "y": 1116.54,
+      "x": -833.92,
+      "y": 833.22,
       "_index": 163
     },
     {
@@ -1976,8 +1976,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -455.22,
-      "y": 919.04,
+      "x": -946.0,
+      "y": 468.66,
       "_index": 164
     },
     {
@@ -1988,8 +1988,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -322.97,
-      "y": 1018.51,
+      "x": -839.59,
+      "y": 573.26,
       "_index": 165
     },
     {
@@ -2000,8 +2000,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -419.63,
-      "y": 1103.73,
+      "x": -1030.17,
+      "y": 616.32,
       "_index": 166
     },
     {
@@ -2012,8 +2012,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 11,
-      "x": 181.66,
-      "y": 197.42,
+      "x": 115.99,
+      "y": 113.26,
       "_index": 167
     },
     {
@@ -2024,8 +2024,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 3,
-      "x": 202.55,
-      "y": 438.56,
+      "x": -17.43,
+      "y": 285.95,
       "_index": 168
     },
     {
@@ -2036,8 +2036,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 2,
-      "x": -565.45,
-      "y": 705.31,
+      "x": -605.28,
+      "y": 663.52,
       "_index": 169
     },
     {
@@ -2048,8 +2048,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -272.27,
-      "y": 1095.81,
+      "x": -945.83,
+      "y": 723.05,
       "_index": 170
     },
     {
@@ -2060,8 +2060,8 @@
       "org_type": "tire_company",
       "member_status": null,
       "degree": 2,
-      "x": -372.61,
-      "y": 602.83,
+      "x": -731.88,
+      "y": 312.53,
       "_index": 171
     },
     {
@@ -2072,8 +2072,8 @@
       "org_type": "transit_authority",
       "member_status": null,
       "degree": 1,
-      "x": -386.3,
-      "y": 924.9,
+      "x": -892.72,
+      "y": 645.6,
       "_index": 172
     },
     {
@@ -2084,8 +2084,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 1,
-      "x": -684.65,
-      "y": -216.35,
+      "x": -579.02,
+      "y": -326.86,
       "_index": 173
     },
     {
@@ -2096,8 +2096,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 2,
-      "x": -794.56,
-      "y": 227.32,
+      "x": -615.52,
+      "y": 291.74,
       "_index": 174
     },
     {
@@ -2108,8 +2108,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -858.09,
-      "y": -146.43,
+      "x": -734.19,
+      "y": -338.01,
       "_index": 175
     },
     {
@@ -2120,8 +2120,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -697.96,
-      "y": -329.26,
+      "x": -662.04,
+      "y": -394.23,
       "_index": 176
     },
     {
@@ -2132,8 +2132,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 2,
-      "x": -813.32,
-      "y": 169.64,
+      "x": -551.18,
+      "y": 287.5,
       "_index": 177
     },
     {
@@ -2144,8 +2144,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -644.42,
-      "y": -145.29,
+      "x": -639.84,
+      "y": -151.87,
       "_index": 178
     },
     {
@@ -2156,8 +2156,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 4,
-      "x": -109.68,
-      "y": -352.67,
+      "x": -60.93,
+      "y": -370.33,
       "_index": 179
     },
     {
@@ -2168,8 +2168,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -797.93,
-      "y": 761.35,
+      "x": -334.87,
+      "y": 792.01,
       "_index": 180
     },
     {
@@ -2180,8 +2180,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -847.78,
-      "y": 730.92,
+      "x": -262.3,
+      "y": 801.55,
       "_index": 181
     },
     {
@@ -2192,8 +2192,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -800.64,
-      "y": 926.42,
+      "x": -205.75,
+      "y": 933.45,
       "_index": 182
     },
     {
@@ -2204,8 +2204,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 1,
-      "x": 410.81,
-      "y": 790.08,
+      "x": 368.92,
+      "y": 800.34,
       "_index": 183
     },
     {
@@ -2216,8 +2216,8 @@
       "org_type": "ngo",
       "member_status": null,
       "degree": 1,
-      "x": 23.97,
-      "y": 945.02,
+      "x": -37.72,
+      "y": 957.71,
       "_index": 184
     },
     {
@@ -2228,8 +2228,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -1256.16,
-      "y": 542.55,
+      "x": -466.39,
+      "y": 1118.44,
       "_index": 185
     },
     {
@@ -2240,8 +2240,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -1232.23,
-      "y": 631.13,
+      "x": -657.34,
+      "y": 1016.2,
       "_index": 186
     },
     {
@@ -2252,8 +2252,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 6,
-      "x": 329.93,
-      "y": 3.5,
+      "x": 301.91,
+      "y": -9.97,
       "_index": 187
     },
     {
@@ -2264,8 +2264,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 2,
-      "x": -86.31,
-      "y": -787.41,
+      "x": 23.66,
+      "y": -753.35,
       "_index": 188
     },
     {
@@ -2276,8 +2276,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 3,
-      "x": -49.85,
-      "y": 170.95,
+      "x": -30.3,
+      "y": 186.89,
       "_index": 189
     },
     {
@@ -2288,8 +2288,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -643.11,
-      "y": -667.02,
+      "x": -536.47,
+      "y": -697.71,
       "_index": 190
     },
     {
@@ -2300,8 +2300,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -320.62,
-      "y": -766.4,
+      "x": -501.59,
+      "y": -806.58,
       "_index": 191
     },
     {
@@ -2312,8 +2312,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -410.27,
-      "y": -803.95,
+      "x": -347.26,
+      "y": -752.08,
       "_index": 192
     },
     {
@@ -2324,8 +2324,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -522.33,
-      "y": -735.25,
+      "x": -484.4,
+      "y": -741.49,
       "_index": 193
     },
     {
@@ -2336,8 +2336,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -572.6,
-      "y": -688.24,
+      "x": -354.91,
+      "y": -818.69,
       "_index": 194
     },
     {
@@ -2348,8 +2348,8 @@
       "org_type": "research_lab",
       "member_status": null,
       "degree": 1,
-      "x": -455.54,
-      "y": -733.22,
+      "x": -429.51,
+      "y": -818.9,
       "_index": 195
     },
     {
@@ -2360,8 +2360,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 2,
-      "x": -42.74,
-      "y": 328.96,
+      "x": -23.28,
+      "y": 361.86,
       "_index": 196
     },
     {
@@ -2372,8 +2372,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 1,
-      "x": -309.02,
-      "y": -330.59,
+      "x": -220.76,
+      "y": -349.61,
       "_index": 197
     },
     {
@@ -2384,8 +2384,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -206.19,
-      "y": -292.04,
+      "x": -138.72,
+      "y": -301.22,
       "_index": 198
     },
     {
@@ -2396,8 +2396,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -1175.57,
-      "y": 281.97,
+      "x": -1210.04,
+      "y": 214.53,
       "_index": 199
     },
     {
@@ -2408,8 +2408,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1317.11,
-      "y": 208.82,
+      "x": -1325.73,
+      "y": 221.93,
       "_index": 200
     },
     {
@@ -2420,8 +2420,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1302.54,
-      "y": 282.79,
+      "x": -1304.93,
+      "y": 307.89,
       "_index": 201
     },
     {
@@ -2432,8 +2432,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1190.26,
-      "y": 121.14,
+      "x": -1213.45,
+      "y": 121.21,
       "_index": 202
     },
     {
@@ -2444,8 +2444,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 2,
-      "x": -382.67,
-      "y": -214.79,
+      "x": -281.44,
+      "y": -50.62,
       "_index": 203
     },
     {
@@ -2456,8 +2456,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 1,
-      "x": -376.54,
-      "y": -115.71,
+      "x": -395.08,
+      "y": -238.28,
       "_index": 204
     },
     {
@@ -2468,8 +2468,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -403.89,
-      "y": 497.5,
+      "x": -606.41,
+      "y": 506.76,
       "_index": 205
     },
     {
@@ -2480,8 +2480,8 @@
       "org_type": "travel_company",
       "member_status": null,
       "degree": 1,
-      "x": -709.08,
-      "y": 292.34,
+      "x": -505.0,
+      "y": 538.75,
       "_index": 206
     },
     {
@@ -2492,8 +2492,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 1,
-      "x": -1078.51,
-      "y": -197.74,
+      "x": -1057.47,
+      "y": -237.31,
       "_index": 207
     },
     {
@@ -2504,8 +2504,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -1108.64,
-      "y": -127.07,
+      "x": -1110.95,
+      "y": -93.33,
       "_index": 208
     },
     {
@@ -2516,8 +2516,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1279.22,
-      "y": -2.68,
+      "x": -1259.89,
+      "y": -47.99,
       "_index": 209
     },
     {
@@ -2528,8 +2528,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 1469.9,
-      "y": -1126.24,
+      "x": 1570.62,
+      "y": -948.73,
       "_index": 210
     },
     {
@@ -2540,8 +2540,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 2,
-      "x": 1307.95,
-      "y": -1058.76,
+      "x": 1407.05,
+      "y": -892.5,
       "_index": 211
     },
     {
@@ -2552,8 +2552,8 @@
       "org_type": "tv_network",
       "member_status": null,
       "degree": 1,
-      "x": 1698.81,
-      "y": 102.24,
+      "x": 1647.21,
+      "y": 289.95,
       "_index": 212
     },
     {
@@ -2564,8 +2564,8 @@
       "org_type": "tv_network",
       "member_status": null,
       "degree": 1,
-      "x": 1721.11,
-      "y": 37.61,
+      "x": 1677.11,
+      "y": 229.26,
       "_index": 213
     },
     {
@@ -2576,8 +2576,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": 1186.14,
-      "y": -1412.27,
+      "x": 1232.83,
+      "y": -1343.86,
       "_index": 214
     },
     {
@@ -2588,8 +2588,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": 1124.35,
-      "y": -1455.45,
+      "x": 1171.3,
+      "y": -1383.13,
       "_index": 215
     },
     {
@@ -2600,8 +2600,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 3,
-      "x": 954.8,
-      "y": -821.4,
+      "x": 966.16,
+      "y": -798.89,
       "_index": 216
     },
     {
@@ -2612,8 +2612,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 66.29,
-      "y": -1337.6,
+      "x": 183.86,
+      "y": -1343.49,
       "_index": 217
     },
     {
@@ -2624,8 +2624,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 1,
-      "x": 11.25,
-      "y": -1317.15,
+      "x": 127.27,
+      "y": -1328.91,
       "_index": 218
     },
     {
@@ -2636,8 +2636,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": 1437.3,
-      "y": -1392.03,
+      "x": 1520.38,
+      "y": -1253.28,
       "_index": 219
     },
     {
@@ -2648,8 +2648,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": 527.94,
-      "y": -1475.42,
+      "x": 653.21,
+      "y": -1403.75,
       "_index": 220
     },
     {
@@ -2660,8 +2660,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": 1387.41,
-      "y": -1428.23,
+      "x": 1473.14,
+      "y": -1291.36,
       "_index": 221
     },
     {
@@ -2672,8 +2672,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 1786.75,
-      "y": -721.29,
+      "x": 1789.49,
+      "y": -674.12,
       "_index": 222
     },
     {
@@ -2684,8 +2684,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 4,
-      "x": 66.25,
-      "y": -114.12,
+      "x": 278.14,
+      "y": 250.38,
       "_index": 223
     },
     {
@@ -2696,8 +2696,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 2,
-      "x": 157.79,
-      "y": 57.75,
+      "x": 470.67,
+      "y": 599.43,
       "_index": 224
     },
     {
@@ -2708,8 +2708,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 2,
-      "x": 1583.62,
-      "y": -166.66,
+      "x": 1570.24,
+      "y": 7.83,
       "_index": 225
     },
     {
@@ -2720,8 +2720,8 @@
       "org_type": "gallery",
       "member_status": null,
       "degree": 1,
-      "x": 1742.83,
-      "y": -223.62,
+      "x": 1734.86,
+      "y": -29.51,
       "_index": 226
     },
     {
@@ -2732,8 +2732,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": 1715.55,
-      "y": -109.62,
+      "x": 1691.97,
+      "y": 79.48,
       "_index": 227
     },
     {
@@ -2744,8 +2744,8 @@
       "org_type": "label",
       "member_status": null,
       "degree": 1,
-      "x": 731.44,
-      "y": -1593.42,
+      "x": 870.91,
+      "y": -1498.64,
       "_index": 228
     },
     {
@@ -2756,8 +2756,8 @@
       "org_type": "label",
       "member_status": null,
       "degree": 1,
-      "x": 800.66,
-      "y": -1577.66,
+      "x": 935.87,
+      "y": -1475.23,
       "_index": 229
     },
     {
@@ -2769,7 +2769,7 @@
       "member_status": null,
       "degree": 1,
       "x": 1800.0,
-      "y": -659.97,
+      "y": -613.4,
       "_index": 230
     },
     {
@@ -2780,8 +2780,8 @@
       "org_type": "association",
       "member_status": null,
       "degree": 1,
-      "x": 1625.42,
-      "y": -271.56,
+      "x": 1689.28,
+      "y": -192.12,
       "_index": 231
     },
     {
@@ -2792,8 +2792,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 1660.49,
-      "y": -482.88,
+      "x": 1620.89,
+      "y": -275.15,
       "_index": 232
     },
     {
@@ -2804,8 +2804,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 824.8,
-      "y": 201.82,
+      "x": 778.05,
+      "y": 408.02,
       "_index": 233
     },
     {
@@ -2816,8 +2816,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 1558.8,
-      "y": 182.49,
+      "x": 1506.37,
+      "y": 359.19,
       "_index": 234
     },
     {
@@ -2828,8 +2828,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -597.17,
-      "y": 219.04,
+      "x": -439.72,
+      "y": 384.52,
       "_index": 235
     },
     {
@@ -2840,8 +2840,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -770.14,
-      "y": 34.25,
+      "x": -544.05,
+      "y": 469.77,
       "_index": 236
     },
     {
@@ -2852,8 +2852,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -567.2,
-      "y": -35.86,
+      "x": -325.42,
+      "y": 452.44,
       "_index": 237
     },
     {
@@ -2864,8 +2864,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -755.54,
-      "y": 107.34,
+      "x": -634.39,
+      "y": 410.03,
       "_index": 238
     },
     {
@@ -2876,8 +2876,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -861.29,
-      "y": 907.2,
+      "x": -270.26,
+      "y": 983.39,
       "_index": 239
     },
     {
@@ -2888,8 +2888,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -907.05,
-      "y": 869.13,
+      "x": -338.56,
+      "y": 937.55,
       "_index": 240
     },
     {
@@ -2900,8 +2900,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -757.32,
-      "y": 803.31,
+      "x": -126.64,
+      "y": 750.24,
       "_index": 241
     },
     {
@@ -2912,8 +2912,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 2,
-      "x": -463.36,
-      "y": 78.05,
+      "x": -337.96,
+      "y": 50.75,
       "_index": 242
     },
     {
@@ -2924,8 +2924,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 1,
-      "x": -828.72,
-      "y": 604.95,
+      "x": -196.15,
+      "y": 695.4,
       "_index": 243
     },
     {
@@ -2936,8 +2936,8 @@
       "org_type": "tech_company",
       "member_status": null,
       "degree": 1,
-      "x": -696.05,
-      "y": 816.46,
+      "x": -193.44,
+      "y": 789.66,
       "_index": 244
     },
     {
@@ -2948,8 +2948,8 @@
       "org_type": "ngo",
       "member_status": null,
       "degree": 1,
-      "x": -942.97,
-      "y": 817.86,
+      "x": -274.13,
+      "y": 917.69,
       "_index": 245
     },
     {
@@ -2960,8 +2960,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -778.14,
-      "y": 653.45,
+      "x": -76.31,
+      "y": 630.93,
       "_index": 246
     },
     {
@@ -2972,8 +2972,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -875.27,
-      "y": 674.37,
+      "x": -395.69,
+      "y": 750.91,
       "_index": 247
     },
     {
@@ -2984,8 +2984,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 5,
-      "x": -545.0,
-      "y": 136.53,
+      "x": -424.51,
+      "y": 132.32,
       "_index": 248
     },
     {
@@ -2996,8 +2996,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -730.2,
-      "y": 693.44,
+      "x": -279.99,
+      "y": 721.65,
       "_index": 249
     },
     {
@@ -3008,8 +3008,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 2,
-      "x": -744.08,
-      "y": 529.34,
+      "x": -266.32,
+      "y": 614.74,
       "_index": 250
     },
     {
@@ -3020,8 +3020,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 2,
-      "x": -774.71,
-      "y": 465.18,
+      "x": -413.75,
+      "y": 634.25,
       "_index": 251
     },
     {
@@ -3032,8 +3032,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -678.31,
-      "y": 734.68,
+      "x": -134.26,
+      "y": 660.35,
       "_index": 252
     },
     {
@@ -3044,8 +3044,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 2,
-      "x": -414.43,
-      "y": 363.77,
+      "x": -611.95,
+      "y": 139.91,
       "_index": 253
     },
     {
@@ -3056,8 +3056,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 2,
-      "x": -355.79,
-      "y": 377.77,
+      "x": -600.35,
+      "y": 194.0,
       "_index": 254
     },
     {
@@ -3068,8 +3068,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 3,
-      "x": -229.97,
-      "y": 382.01,
+      "x": -304.04,
+      "y": 331.12,
       "_index": 255
     },
     {
@@ -3080,8 +3080,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -870.5,
-      "y": -64.9,
+      "x": -840.5,
+      "y": -177.13,
       "_index": 256
     },
     {
@@ -3092,8 +3092,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -704.54,
-      "y": -112.14,
+      "x": -667.53,
+      "y": -210.59,
       "_index": 257
     },
     {
@@ -3104,8 +3104,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -721.03,
-      "y": -48.8,
+      "x": -705.02,
+      "y": -125.46,
       "_index": 258
     },
     {
@@ -3116,8 +3116,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -587.69,
-      "y": -243.88,
+      "x": -605.4,
+      "y": -252.31,
       "_index": 259
     },
     {
@@ -3128,8 +3128,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1243.58,
-      "y": 478.3,
+      "x": -500.19,
+      "y": 1068.59,
       "_index": 260
     },
     {
@@ -3140,8 +3140,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -990.43,
-      "y": 543.78,
+      "x": -556.55,
+      "y": 856.1,
       "_index": 261
     },
     {
@@ -3152,8 +3152,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -1036.11,
-      "y": 442.01,
+      "x": -456.05,
+      "y": 881.48,
       "_index": 262
     },
     {
@@ -3164,8 +3164,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1201.14,
-      "y": 570.64,
+      "x": -705.2,
+      "y": 1054.42,
       "_index": 263
     },
     {
@@ -3176,8 +3176,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1168.79,
-      "y": 649.44,
+      "x": -742.17,
+      "y": 999.16,
       "_index": 264
     },
     {
@@ -3188,8 +3188,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1124.82,
-      "y": 778.97,
+      "x": -404.8,
+      "y": 1094.92,
       "_index": 265
     },
     {
@@ -3200,8 +3200,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1067.55,
-      "y": 808.48,
+      "x": -553.53,
+      "y": 1112.42,
       "_index": 266
     },
     {
@@ -3212,8 +3212,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1185.63,
-      "y": 712.62,
+      "x": -633.43,
+      "y": 1087.69,
       "_index": 267
     },
     {
@@ -3224,8 +3224,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1117.9,
-      "y": 718.64,
+      "x": -580.75,
+      "y": 1050.62,
       "_index": 268
     },
     {
@@ -3236,8 +3236,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1107.1,
-      "y": 494.12,
+      "x": -541.05,
+      "y": 937.94,
       "_index": 269
     },
     {
@@ -3248,8 +3248,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1022.96,
-      "y": 655.98,
+      "x": -462.46,
+      "y": 958.41,
       "_index": 270
     },
     {
@@ -3260,8 +3260,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1072.2,
-      "y": 574.66,
+      "x": -621.48,
+      "y": 904.92,
       "_index": 271
     },
     {
@@ -3272,8 +3272,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -512.86,
-      "y": 944.04,
+      "x": -886.63,
+      "y": 512.37,
       "_index": 272
     },
     {
@@ -3284,8 +3284,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -448.88,
-      "y": 986.42,
+      "x": -830.46,
+      "y": 638.43,
       "_index": 273
     },
     {
@@ -3296,8 +3296,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -200.22,
-      "y": 1022.12,
+      "x": -730.79,
+      "y": 712.29,
       "_index": 274
     },
     {
@@ -3308,8 +3308,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -141.63,
-      "y": 993.26,
+      "x": -793.38,
+      "y": 742.14,
       "_index": 275
     },
     {
@@ -3320,8 +3320,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -228.38,
-      "y": 1130.68,
+      "x": -875.75,
+      "y": 800.23,
       "_index": 276
     },
     {
@@ -3332,8 +3332,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -122.43,
-      "y": 1088.85,
+      "x": -778.25,
+      "y": 841.21,
       "_index": 277
     },
     {
@@ -3344,8 +3344,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -386.18,
-      "y": 1001.21,
+      "x": -952.18,
+      "y": 532.43,
       "_index": 278
     },
     {
@@ -3356,8 +3356,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -265.23,
-      "y": 1257.38,
+      "x": -990.69,
+      "y": 881.76,
       "_index": 279
     },
     {
@@ -3368,8 +3368,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -558.35,
-      "y": 1177.97,
+      "x": -1150.47,
+      "y": 641.94,
       "_index": 280
     },
     {
@@ -3380,8 +3380,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -485.87,
-      "y": 1217.69,
+      "x": -1121.54,
+      "y": 716.85,
       "_index": 281
     },
     {
@@ -3392,8 +3392,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -341.63,
-      "y": 1254.34,
+      "x": -1041.04,
+      "y": 833.34,
       "_index": 282
     },
     {
@@ -3404,8 +3404,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -414.08,
-      "y": 1240.47,
+      "x": -1084.84,
+      "y": 779.42,
       "_index": 283
     },
     {
@@ -3416,8 +3416,8 @@
       "org_type": "newspaper",
       "member_status": null,
       "degree": 1,
-      "x": -180.97,
-      "y": 1246.78,
+      "x": -928.84,
+      "y": 925.52,
       "_index": 284
     },
     {
@@ -3428,8 +3428,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 2,
-      "x": -109.45,
-      "y": 764.64,
+      "x": -315.77,
+      "y": 583.75,
       "_index": 285
     },
     {
@@ -3440,8 +3440,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 1,
-      "x": -325.42,
-      "y": 947.61,
+      "x": -845.2,
+      "y": 703.73,
       "_index": 286
     },
     {
@@ -3452,8 +3452,8 @@
       "org_type": "gallery",
       "member_status": null,
       "degree": 1,
-      "x": -190.13,
-      "y": 947.09,
+      "x": -772.6,
+      "y": 659.52,
       "_index": 287
     },
     {
@@ -3464,8 +3464,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -259.49,
-      "y": 1005.17,
+      "x": -912.58,
+      "y": 582.96,
       "_index": 288
     },
     {
@@ -3476,8 +3476,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -561.72,
-      "y": 1015.36,
+      "x": -1039.06,
+      "y": 505.62,
       "_index": 289
     },
     {
@@ -3488,8 +3488,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -318.24,
-      "y": 1133.59,
+      "x": -915.49,
+      "y": 766.15,
       "_index": 290
     },
     {
@@ -3500,8 +3500,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -519.62,
-      "y": 1055.55,
+      "x": -1043.03,
+      "y": 561.78,
       "_index": 291
     },
     {
@@ -3512,8 +3512,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 2,
-      "x": -53.53,
-      "y": 766.63,
+      "x": -315.59,
+      "y": 645.23,
       "_index": 292
     },
     {
@@ -3524,8 +3524,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -468.04,
-      "y": 1076.53,
+      "x": -978.33,
+      "y": 636.59,
       "_index": 293
     },
     {
@@ -3536,8 +3536,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 2,
-      "x": -338.7,
-      "y": 649.46,
+      "x": -717.0,
+      "y": 370.53,
       "_index": 294
     },
     {
@@ -3548,8 +3548,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 2,
-      "x": -171.18,
-      "y": 402.11,
+      "x": -430.52,
+      "y": 265.21,
       "_index": 295
     },
     {
@@ -3560,8 +3560,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -365.31,
-      "y": 1098.0,
+      "x": -993.02,
+      "y": 692.42,
       "_index": 296
     },
     {
@@ -3572,8 +3572,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 2,
-      "x": -396.27,
-      "y": -528.18,
+      "x": -345.36,
+      "y": -545.6,
       "_index": 297
     },
     {
@@ -3584,8 +3584,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -520.91,
-      "y": -578.73,
+      "x": -470.35,
+      "y": -598.58,
       "_index": 298
     },
     {
@@ -3596,8 +3596,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -455.04,
-      "y": -600.28,
+      "x": -335.29,
+      "y": -632.86,
       "_index": 299
     },
     {
@@ -3608,8 +3608,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -482.23,
-      "y": -496.99,
+      "x": -433.59,
+      "y": -520.77,
       "_index": 300
     },
     {
@@ -3620,8 +3620,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 2,
-      "x": -245.99,
-      "y": -157.16,
+      "x": -231.94,
+      "y": -183.93,
       "_index": 301
     },
     {
@@ -3632,8 +3632,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -319.24,
-      "y": -607.37,
+      "x": -525.14,
+      "y": -556.56,
       "_index": 302
     },
     {
@@ -3644,8 +3644,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -571.85,
-      "y": -530.96,
+      "x": -404.0,
+      "y": -617.76,
       "_index": 303
     },
     {
@@ -3656,8 +3656,8 @@
       "org_type": "studio",
       "member_status": null,
       "degree": 1,
-      "x": -489.72,
-      "y": -803.22,
+      "x": -418.31,
+      "y": -749.19,
       "_index": 304
     },
     {
@@ -3668,8 +3668,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -632.65,
-      "y": -737.65,
+      "x": -600.98,
+      "y": -703.94,
       "_index": 305
     },
     {
@@ -3680,8 +3680,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -387.04,
-      "y": -617.68,
+      "x": -268.9,
+      "y": -619.61,
       "_index": 306
     },
     {
@@ -3692,8 +3692,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -381.35,
-      "y": -741.75,
+      "x": -282.39,
+      "y": -771.19,
       "_index": 307
     },
     {
@@ -3704,8 +3704,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -572.5,
-      "y": -781.23,
+      "x": -565.94,
+      "y": -770.11,
       "_index": 308
     },
     {
@@ -3716,8 +3716,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": 217.19,
-      "y": 717.62,
+      "x": 208.47,
+      "y": 732.4,
       "_index": 309
     },
     {
@@ -3728,8 +3728,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": 125.28,
-      "y": 770.66,
+      "x": 130.1,
+      "y": 788.43,
       "_index": 310
     },
     {
@@ -3740,8 +3740,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -155.42,
-      "y": -136.75,
+      "x": -88.67,
+      "y": -133.15,
       "_index": 311
     },
     {
@@ -3752,8 +3752,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -215.03,
-      "y": -363.69,
+      "x": -300.41,
+      "y": -337.36,
       "_index": 312
     },
     {
@@ -3764,8 +3764,8 @@
       "org_type": "journal",
       "member_status": null,
       "degree": 1,
-      "x": -1110.29,
-      "y": 196.43,
+      "x": -1101.43,
+      "y": 325.25,
       "_index": 313
     },
     {
@@ -3776,8 +3776,8 @@
       "org_type": "journal",
       "member_status": null,
       "degree": 1,
-      "x": -1039.06,
-      "y": 202.94,
+      "x": -1072.6,
+      "y": 275.1,
       "_index": 314
     },
     {
@@ -3788,8 +3788,8 @@
       "org_type": "journal",
       "member_status": null,
       "degree": 1,
-      "x": -1068.76,
-      "y": 311.87,
+      "x": -1075.71,
+      "y": 204.27,
       "_index": 315
     },
     {
@@ -3800,8 +3800,8 @@
       "org_type": "journal",
       "member_status": null,
       "degree": 1,
-      "x": -1022.25,
-      "y": 268.64,
+      "x": -1076.76,
+      "y": 133.36,
       "_index": 316
     },
     {
@@ -3812,8 +3812,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -1106.13,
-      "y": 136.07,
+      "x": -1136.53,
+      "y": 185.27,
       "_index": 317
     },
     {
@@ -3824,8 +3824,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -1044.28,
-      "y": 70.97,
+      "x": -1078.81,
+      "y": 57.03,
       "_index": 318
     },
     {
@@ -3836,8 +3836,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -1318.44,
-      "y": 134.93,
+      "x": -1327.79,
+      "y": 134.63,
       "_index": 319
     },
     {
@@ -3848,8 +3848,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1033.27,
-      "y": 137.61,
+      "x": -1136.43,
+      "y": 122.12,
       "_index": 320
     },
     {
@@ -3860,8 +3860,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1108.98,
-      "y": 74.11,
+      "x": -1135.89,
+      "y": 60.01,
       "_index": 321
     },
     {
@@ -3872,8 +3872,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": -1099.88,
-      "y": 258.28,
+      "x": -1129.4,
+      "y": 252.16,
       "_index": 322
     },
     {
@@ -3884,8 +3884,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -926.47,
-      "y": -701.59,
+      "x": -918.03,
+      "y": -701.39,
       "_index": 323
     },
     {
@@ -3896,8 +3896,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -790.92,
-      "y": -606.99,
+      "x": -751.83,
+      "y": -650.53,
       "_index": 324
     },
     {
@@ -3908,8 +3908,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -979.89,
-      "y": -442.43,
+      "x": -905.12,
+      "y": -539.5,
       "_index": 325
     },
     {
@@ -3920,8 +3920,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -1006.19,
-      "y": -382.74,
+      "x": -946.2,
+      "y": -489.48,
       "_index": 326
     },
     {
@@ -3932,8 +3932,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -849.08,
-      "y": -578.2,
+      "x": -809.49,
+      "y": -620.32,
       "_index": 327
     },
     {
@@ -3944,8 +3944,8 @@
       "org_type": "publisher",
       "member_status": null,
       "degree": 1,
-      "x": -939.6,
-      "y": -491.85,
+      "x": -976.3,
+      "y": -429.74,
       "_index": 328
     },
     {
@@ -3956,8 +3956,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -747.24,
-      "y": -524.52,
+      "x": -714.15,
+      "y": -572.97,
       "_index": 329
     },
     {
@@ -3968,8 +3968,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 1,
-      "x": -882.82,
-      "y": -420.58,
+      "x": -805.51,
+      "y": -497.98,
       "_index": 330
     },
     {
@@ -3980,8 +3980,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -1025.91,
-      "y": -580.29,
+      "x": -1046.07,
+      "y": -616.82,
       "_index": 331
     },
     {
@@ -3992,8 +3992,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -1127.89,
-      "y": -452.43,
+      "x": -1092.04,
+      "y": -502.89,
       "_index": 332
     },
     {
@@ -4004,8 +4004,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -1099.22,
-      "y": -507.43,
+      "x": -1059.95,
+      "y": -557.17,
       "_index": 333
     },
     {
@@ -4016,8 +4016,8 @@
       "org_type": "festival",
       "member_status": null,
       "degree": 1,
-      "x": -802.68,
-      "y": -498.62,
+      "x": -853.42,
+      "y": -463.02,
       "_index": 334
     },
     {
@@ -4028,8 +4028,8 @@
       "org_type": "magazine",
       "member_status": null,
       "degree": 1,
-      "x": -471.48,
-      "y": 590.2,
+      "x": -852.12,
+      "y": 126.31,
       "_index": 335
     },
     {
@@ -4040,8 +4040,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -448.67,
-      "y": 666.09,
+      "x": -846.12,
+      "y": 38.28,
       "_index": 336
     },
     {
@@ -4052,8 +4052,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -543.44,
-      "y": 529.83,
+      "x": -857.02,
+      "y": 212.41,
       "_index": 337
     },
     {
@@ -4064,8 +4064,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -596.71,
-      "y": 587.99,
+      "x": -792.44,
+      "y": -8.87,
       "_index": 338
     },
     {
@@ -4076,8 +4076,8 @@
       "org_type": "fashion_brand",
       "member_status": null,
       "degree": 1,
-      "x": -528.85,
-      "y": 628.38,
+      "x": -826.03,
+      "y": 278.85,
       "_index": 339
     },
     {
@@ -4088,8 +4088,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -648.8,
-      "y": 446.91,
+      "x": -801.68,
+      "y": 180.13,
       "_index": 340
     },
     {
@@ -4100,8 +4100,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -621.17,
-      "y": 515.38,
+      "x": -791.84,
+      "y": 77.33,
       "_index": 341
     },
     {
@@ -4112,8 +4112,8 @@
       "org_type": "agency",
       "member_status": null,
       "degree": 1,
-      "x": -817.38,
-      "y": 399.56,
+      "x": -944.68,
+      "y": 280.53,
       "_index": 342
     },
     {
@@ -4124,8 +4124,8 @@
       "org_type": "production_company",
       "member_status": null,
       "degree": 1,
-      "x": -817.6,
-      "y": 504.68,
+      "x": -950.82,
+      "y": 91.66,
       "_index": 343
     },
     {
@@ -4136,8 +4136,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": -455.24,
-      "y": -304.16,
+      "x": -435.33,
+      "y": -342.46,
       "_index": 344
     },
     {
@@ -4148,8 +4148,8 @@
       "org_type": "journal",
       "member_status": null,
       "degree": 1,
-      "x": -457.02,
-      "y": -137.84,
+      "x": -446.66,
+      "y": -172.02,
       "_index": 345
     },
     {
@@ -4160,8 +4160,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": -1127.61,
-      "y": -53.98,
+      "x": -1090.1,
+      "y": -167.36,
       "_index": 346
     },
     {
@@ -4172,8 +4172,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": -1039.48,
-      "y": -39.1,
+      "x": -1031.38,
+      "y": -75.0,
       "_index": 347
     },
     {
@@ -4184,8 +4184,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1282.91,
-      "y": -148.86,
+      "x": -1261.55,
+      "y": -194.07,
       "_index": 348
     },
     {
@@ -4196,8 +4196,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1219.88,
-      "y": -171.2,
+      "x": -1199.59,
+      "y": -216.02,
       "_index": 349
     },
     {
@@ -4208,8 +4208,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1188.01,
-      "y": -266.49,
+      "x": -1163.27,
+      "y": -310.83,
       "_index": 350
     },
     {
@@ -4220,8 +4220,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1242.93,
-      "y": -230.09,
+      "x": -1216.68,
+      "y": -274.41,
       "_index": 351
     },
     {
@@ -4232,8 +4232,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1243.11,
-      "y": -88.81,
+      "x": -1223.0,
+      "y": -136.37,
       "_index": 352
     },
     {
@@ -4244,8 +4244,8 @@
       "org_type": "company",
       "member_status": null,
       "degree": 1,
-      "x": -1299.3,
-      "y": -64.52,
+      "x": -1276.59,
+      "y": -108.94,
       "_index": 353
     },
     {
@@ -4256,8 +4256,8 @@
       "org_type": "brand",
       "member_status": null,
       "degree": 1,
-      "x": 194.57,
-      "y": 823.56,
+      "x": 90.77,
+      "y": 872.43,
       "_index": 354
     },
     {
@@ -4268,8 +4268,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": 400.45,
-      "y": 728.74,
+      "x": 387.97,
+      "y": 733.03,
       "_index": 355
     },
     {
@@ -4280,8 +4280,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": 150.19,
-      "y": 927.16,
+      "x": 71.01,
+      "y": 1027.97,
       "_index": 356
     },
     {
@@ -4292,8 +4292,8 @@
       "org_type": "finance",
       "member_status": null,
       "degree": 1,
-      "x": 274.55,
-      "y": 781.59,
+      "x": 172.87,
+      "y": 862.98,
       "_index": 357
     },
     {
@@ -4304,8 +4304,8 @@
       "org_type": "foundation",
       "member_status": null,
       "degree": 1,
-      "x": 387.32,
-      "y": 877.81,
+      "x": 230.1,
+      "y": 822.45,
       "_index": 358
     },
     {
@@ -4316,8 +4316,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": 177.89,
-      "y": 984.46,
+      "x": 127.62,
+      "y": 992.15,
       "_index": 359
     },
     {
@@ -4328,8 +4328,8 @@
       "org_type": "brand",
       "member_status": null,
       "degree": 1,
-      "x": 446.36,
-      "y": 684.37,
+      "x": 331.99,
+      "y": 706.85,
       "_index": 360
     },
     {
@@ -4340,8 +4340,8 @@
       "org_type": "foundation",
       "member_status": null,
       "degree": 1,
-      "x": 207.66,
-      "y": 895.84,
+      "x": 82.35,
+      "y": 943.91,
       "_index": 361
     },
     {
@@ -4352,8 +4352,8 @@
       "org_type": "energy",
       "member_status": null,
       "degree": 1,
-      "x": 319.99,
-      "y": 724.65,
+      "x": 282.4,
+      "y": 873.21,
       "_index": 362
     },
     {
@@ -4364,8 +4364,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": 244.28,
-      "y": 951.71,
+      "x": 154.54,
+      "y": 927.77,
       "_index": 363
     },
     {
@@ -4376,8 +4376,8 @@
       "org_type": "foundation",
       "member_status": null,
       "degree": 1,
-      "x": 64.28,
-      "y": 1009.05,
+      "x": 18.9,
+      "y": 905.49,
       "_index": 364
     },
     {
@@ -4388,8 +4388,8 @@
       "org_type": "museum",
       "member_status": null,
       "degree": 1,
-      "x": 118.87,
-      "y": 861.19,
+      "x": 195.32,
+      "y": 982.29,
       "_index": 365
     },
     {
@@ -4400,8 +4400,8 @@
       "org_type": "fintech",
       "member_status": null,
       "degree": 1,
-      "x": 371.21,
-      "y": 665.53,
+      "x": 313.24,
+      "y": 823.47,
       "_index": 366
     },
     {
@@ -4412,8 +4412,8 @@
       "org_type": "consulting",
       "member_status": null,
       "degree": 1,
-      "x": 293.87,
-      "y": 913.88,
+      "x": 372.72,
+      "y": 866.64,
       "_index": 367
     },
     {
@@ -4424,8 +4424,8 @@
       "org_type": "institution",
       "member_status": null,
       "degree": 1,
-      "x": 265.33,
-      "y": 849.52,
+      "x": 224.12,
+      "y": 915.75,
       "_index": 368
     },
     {
@@ -4436,8 +4436,8 @@
       "org_type": "fintech",
       "member_status": null,
       "degree": 1,
-      "x": 125.06,
-      "y": 1017.75,
+      "x": 6.88,
+      "y": 1045.98,
       "_index": 369
     },
     {
@@ -4448,8 +4448,8 @@
       "org_type": "energy",
       "member_status": null,
       "degree": 1,
-      "x": 46.37,
-      "y": 875.95,
+      "x": -49.87,
+      "y": 1020.88,
       "_index": 370
     },
     {
@@ -4460,8 +4460,8 @@
       "org_type": "media",
       "member_status": null,
       "degree": 1,
-      "x": 349.25,
-      "y": 799.78,
+      "x": 288.19,
+      "y": 761.18,
       "_index": 371
     },
     {
@@ -4472,8 +4472,8 @@
       "org_type": "industry",
       "member_status": null,
       "degree": 1,
-      "x": 313.96,
-      "y": 1046.63,
+      "x": 220.9,
+      "y": 1084.29,
       "_index": 372
     },
     {
@@ -4484,8 +4484,8 @@
       "org_type": "architecture",
       "member_status": null,
       "degree": 1,
-      "x": 193.03,
-      "y": 1088.97,
+      "x": 84.27,
+      "y": 1116.61,
       "_index": 373
     },
     {
@@ -4496,8 +4496,8 @@
       "org_type": "tech",
       "member_status": null,
       "degree": 1,
-      "x": 412.93,
-      "y": 970.71,
+      "x": 335.49,
+      "y": 1016.07,
       "_index": 374
     },
     {
@@ -4508,8 +4508,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 334.58,
-      "y": 963.33,
+      "x": 256.38,
+      "y": 1003.94,
       "_index": 375
     },
     {
@@ -4520,8 +4520,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 476.47,
-      "y": 775.88,
+      "x": 431.33,
+      "y": 798.41,
       "_index": 376
     },
     {
@@ -4532,8 +4532,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 237.8,
-      "y": 1018.88,
+      "x": 146.48,
+      "y": 1054.28,
       "_index": 377
     },
     {
@@ -4544,8 +4544,8 @@
       "org_type": "university",
       "member_status": null,
       "degree": 1,
-      "x": 447.46,
-      "y": 856.72,
+      "x": 353.47,
+      "y": 925.84,
       "_index": 378
     },
     {
@@ -4554,10 +4554,22 @@
       "class": "salotto",
       "shape": "hexagon",
       "member_status": "co_founder",
-      "degree": 100,
-      "x": 431.92,
-      "y": -268.24,
+      "degree": 101,
+      "x": 453.66,
+      "y": -218.55,
       "_index": 379
+    },
+    {
+      "id": "O_FLOU",
+      "name": "Flou",
+      "class": "org",
+      "shape": "hexagon",
+      "org_type": "furniture-design",
+      "member_status": null,
+      "degree": 7,
+      "x": -115.84,
+      "y": 148.83,
+      "_index": 380
     }
   ],
   "edges": [
@@ -12092,6 +12104,90 @@
       "color": "#d4915a",
       "sourceIndex": 379,
       "targetIndex": 13
+    },
+    {
+      "source": "SALOTTO",
+      "target": "O_FLOU",
+      "type": "sponsor",
+      "confidence": 0.95,
+      "kind": "salotto",
+      "weight": 4,
+      "width": 0.7,
+      "color": "#d4915a",
+      "sourceIndex": 379,
+      "targetIndex": 380
+    },
+    {
+      "source": "P001",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 0,
+      "targetIndex": 380
+    },
+    {
+      "source": "P002",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 1,
+      "targetIndex": 380
+    },
+    {
+      "source": "P003",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 2,
+      "targetIndex": 380
+    },
+    {
+      "source": "P004",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 3,
+      "targetIndex": 380
+    },
+    {
+      "source": "P005",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 4,
+      "targetIndex": 380
+    },
+    {
+      "source": "P006",
+      "target": "O_FLOU",
+      "type": "partnership",
+      "confidence": 0.85,
+      "kind": "affiliation",
+      "weight": 1,
+      "width": 0.25,
+      "color": "#4466bb",
+      "sourceIndex": 5,
+      "targetIndex": 380
     }
   ],
   "bfs_order": [
@@ -12139,6 +12235,7 @@
     "O47",
     "O48",
     "O49",
+    "O_FLOU",
     "P001",
     "P002",
     "P003",
@@ -12479,9 +12576,9 @@
   "seed": "P004",
   "stats": {
     "people": 131,
-    "organizations": 248,
+    "organizations": 249,
     "subjects": 0,
-    "affiliations": 350,
+    "affiliations": 356,
     "relationships": 164
   }
 }

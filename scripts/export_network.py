@@ -192,6 +192,42 @@ def main():
         key = (min(SALOTTO_ID, pid), max(SALOTTO_ID, pid))
         edge_map[key]["weight"] = w
 
+    # --- Inject Flou organization node + edges ---
+    FLOU_ID = "O_FLOU"
+    nodes[FLOU_ID] = {
+        "id": FLOU_ID,
+        "name": "Flou",
+        "class": "org",
+        "shape": "hexagon",
+        "org_type": "furniture-design",
+        "member_status": None,
+        "degree": 0,
+    }
+    G.add_node(FLOU_ID)
+
+    # Strong connection to Salotto
+    add_edge(SALOTTO_ID, FLOU_ID, {
+        "source": SALOTTO_ID,
+        "target": FLOU_ID,
+        "type": "sponsor",
+        "confidence": 0.95,
+        "kind": "salotto",
+    })
+    key_flou_salotto = (min(SALOTTO_ID, FLOU_ID), max(SALOTTO_ID, FLOU_ID))
+    edge_map[key_flou_salotto]["weight"] = 4
+
+    # Connect to all co-founders (P001–P006)
+    CO_FOUNDERS = ["P001", "P002", "P003", "P004", "P005", "P006"]
+    for pid in CO_FOUNDERS:
+        if pid in nodes:
+            add_edge(pid, FLOU_ID, {
+                "source": pid,
+                "target": FLOU_ID,
+                "type": "partnership",
+                "confidence": 0.85,
+                "kind": "affiliation",
+            })
+
     edges = list(edge_map.values())
 
     max_weight = max((e["weight"] for e in edges), default=1)

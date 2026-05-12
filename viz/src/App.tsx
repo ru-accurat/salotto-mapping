@@ -1,8 +1,9 @@
-import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Component, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ErrorInfo, ReactNode } from "react";
 import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, CosmographLinkColorStrategy } from "@cosmograph/react";
 import type { CosmographRef } from "@cosmograph/react";
 import ControlPanel from "./ControlPanel";
+import Vignette from "./Vignette";
 import { DEFAULT_SETTINGS } from "./settings";
 import type { ViewSettings } from "./settings";
 
@@ -114,6 +115,8 @@ function nodeClassKey(node: Node): keyof ViewSettings["nodeColors"] {
 export default function App() {
   const [rawData, setRawData] = useState<NetworkData | null>(null);
   const [settings, setSettings] = useState<ViewSettings>(DEFAULT_SETTINGS);
+  const [animating, setAnimating] = useState(false);
+  const [animOpacity, setAnimOpacity] = useState(1);
   const cosmographRef = useRef<CosmographRef>(undefined);
 
   useEffect(() => {
@@ -126,7 +129,6 @@ export default function App() {
           n.shapeValue = n.shape === "hexagon" ? "hexagon" : "circle";
           n._index = i;
         });
-        // Store base width for contrast calculations
         const maxWeight = Math.max(...d.edges.map((e) => e.weight), 1);
         d.edges.forEach((e) => {
           e._baseWidth = 0.1 + (e.weight / maxWeight) * 0.9;
@@ -136,7 +138,23 @@ export default function App() {
       });
   }, []);
 
-  // Derive display data from raw data + settings
+  // ESC to stop animation
+  useEffect(() => {
+    if (!animating) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setAnimating(false);
+        setAnimOpacity(1);
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [animating]);
+
+  const handlePlay = useCallback(() => setAnimating(true), []);
+  const handleAnimationOpacity = useCallback((o: number) => setAnimOpacity(o), []);
+
+  // Derive display data
   const data = useMemo(() => {
     if (!rawData) return null;
 
@@ -184,15 +202,24 @@ export default function App() {
     );
   }
 
-  const panel = <ControlPanel settings={settings} onChange={setSettings} />;
+  const panel = !animating && (
+    <ControlPanel settings={settings} onChange={setSettings} onPlay={handlePlay} />
+  );
 
   if (settings.mode === "3d") {
     return (
       <div style={{ width: "100vw", height: "100vh", background: settings.backgroundColor }}>
         {panel}
+        {animating && <Vignette opacity={animOpacity} />}
         <Graph3DErrorBoundary>
           <Suspense fallback={null}>
-            <Graph3D nodes={data.nodes} edges={data.edges} settings={settings} />
+            <Graph3D
+              nodes={data.nodes}
+              edges={data.edges}
+              settings={settings}
+              animating={animating}
+              onAnimationOpacity={handleAnimationOpacity}
+            />
           </Suspense>
         </Graph3DErrorBoundary>
       </div>
