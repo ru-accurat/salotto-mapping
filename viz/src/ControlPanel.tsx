@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import type { ViewSettings, NodeColors, StarFieldSettings } from "./settings";
 
 interface Preset {
@@ -82,8 +82,6 @@ export default function ControlPanel({
   const [presets, setPresets] = useState<Preset[]>(loadPresets);
   const [presetName, setPresetName] = useState("");
   const [showSaveInput, setShowSaveInput] = useState(false);
-
-  const refreshPresets = useCallback(() => setPresets(loadPresets()), []);
 
   const handleSavePreset = () => {
     const name = presetName.trim();
