@@ -1,6 +1,9 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, CosmographLinkColorStrategy } from "@cosmograph/react";
 import type { CosmographRef } from "@cosmograph/react";
+import ControlPanel from "./ControlPanel";
+import { DEFAULT_SETTINGS } from "./settings";
+import type { ViewSettings } from "./settings";
 
 const Graph3D = lazy(() => import("./Graph3D"));
 
@@ -19,6 +22,7 @@ interface Node {
   size?: number;
   shapeValue?: string;
   _index?: number;
+  _baseSize?: number;
   [key: string]: unknown;
 }
 
@@ -34,6 +38,7 @@ interface Edge {
   status?: string;
   sourceIndex: number;
   targetIndex: number;
+  _baseWidth?: number;
   [key: string]: unknown;
 }
 
@@ -53,9 +58,17 @@ function getNodeSize(node: Node): number {
   return Math.max(3, Math.min(3 + node.degree * 0.3, 5));
 }
 
+function nodeClassKey(node: Node): keyof ViewSettings["nodeColors"] {
+  if (node.class === "salotto") return "salotto";
+  if (node.class === "org") return "org";
+  if (node.class === "ambient") return "ambient";
+  if (node.class === "member") return "member";
+  return "guest";
+}
+
 export default function App() {
-  const [data, setData] = useState<NetworkData | null>(null);
-  const [mode, setMode] = useState<"2d" | "3d">("2d");
+  const [rawData, setRawData] = useState<NetworkData | null>(null);
+  const [settings, setSettings] = useState<ViewSettings>(DEFAULT_SETTINGS);
   const cosmographRef = useRef<CosmographRef>(undefined);
 
   useEffect(() => {
@@ -63,21 +76,60 @@ export default function App() {
       .then((r) => r.json())
       .then((d: NetworkData) => {
         d.nodes.forEach((n, i) => {
-          n.size = getNodeSize(n);
+          n._baseSize = getNodeSize(n);
+          n.size = n._baseSize;
           n.shapeValue = n.shape === "hexagon" ? "hexagon" : "circle";
           n._index = i;
         });
-        setData(d);
+        // Store base width for contrast calculations
+        const maxWeight = Math.max(...d.edges.map((e) => e.weight), 1);
+        d.edges.forEach((e) => {
+          e._baseWidth = 0.1 + (e.weight / maxWeight) * 0.9;
+          e.width = e._baseWidth;
+        });
+        setRawData(d);
       });
   }, []);
 
+  // Derive display data from raw data + settings
+  const data = useMemo(() => {
+    if (!rawData) return null;
+
+    const maxWeight = Math.max(...rawData.edges.map((e) => e.weight), 1);
+
+    const nodes = rawData.nodes.map((n) => {
+      const cls = nodeClassKey(n);
+      const sizeMultiplier = settings.nodeSizeMultipliers[cls];
+      return {
+        ...n,
+        size: (n._baseSize || 3) * sizeMultiplier,
+        _displayColor: settings.nodeColors[cls],
+      };
+    });
+
+    const edges = rawData.edges.map((e) => {
+      const normalizedWeight = e.weight / maxWeight;
+      const contrastedWeight = Math.pow(normalizedWeight, 1 / settings.weightContrast);
+      const baseWidth = 0.1 + contrastedWeight * 0.9;
+      const isSalotto = e.kind === "salotto";
+      const widthMul = isSalotto ? settings.salottoEdgeWidth : settings.networkEdgeWidth;
+      return {
+        ...e,
+        width: baseWidth * widthMul,
+        color: isSalotto ? settings.salottoEdgeColor : settings.networkEdgeColor,
+      };
+    });
+
+    return { ...rawData, nodes, edges };
+  }, [rawData, settings]);
+
   useEffect(() => {
-    if (!data) return;
+    if (!data || settings.mode !== "2d") return;
     const timer = setTimeout(() => {
       cosmographRef.current?.fitView();
     }, 3000);
     return () => clearTimeout(timer);
-  }, [data]);
+  }, [data, settings.mode]);
 
   if (!data) {
     return (
@@ -87,38 +139,14 @@ export default function App() {
     );
   }
 
-  const toggleButton = (
-    <button
-      onClick={() => setMode(mode === "2d" ? "3d" : "2d")}
-      style={{
-        position: "fixed",
-        top: 16,
-        right: 16,
-        zIndex: 1000,
-        background: "rgba(255,255,255,0.08)",
-        border: "1px solid rgba(255,255,255,0.2)",
-        borderRadius: 6,
-        color: "#ffffffcc",
-        padding: "6px 14px",
-        fontSize: 13,
-        fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-        cursor: "pointer",
-        backdropFilter: "blur(8px)",
-        transition: "background 0.2s",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
-      onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
-    >
-      {mode === "2d" ? "3D" : "2D"}
-    </button>
-  );
+  const panel = <ControlPanel settings={settings} onChange={setSettings} />;
 
-  if (mode === "3d") {
+  if (settings.mode === "3d") {
     return (
       <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
-        {toggleButton}
+        {panel}
         <Suspense fallback={null}>
-          <Graph3D nodes={data.nodes} edges={data.edges} />
+          <Graph3D nodes={data.nodes} edges={data.edges} settings={settings} />
         </Suspense>
       </div>
     );
@@ -126,27 +154,20 @@ export default function App() {
 
   return (
     <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
-      {toggleButton}
+      {panel}
       <Cosmograph
         ref={cosmographRef}
         backgroundColor="#000000"
         enableSimulation={true}
-        simulationGravity={0.5}
+        simulationGravity={settings.gravity}
         simulationCenter={0.5}
         simulationRepulsion={0.5}
         simulationLinkDistance={5}
         points={data.nodes}
         pointIdBy="id"
         pointIndexBy="_index"
-        pointColorBy="class"
-        pointColorByMap={{
-          salotto: "#d4915a",
-          member: "#5fe6c8",
-          guest: "#ffffff",
-          ambient: "#c8c8e0",
-          org: "#7a7a8e",
-        }}
-        pointColorStrategy={CosmographPointColorStrategy.Map}
+        pointColorBy="_displayColor"
+        pointColorStrategy={CosmographPointColorStrategy.Direct}
         pointSizeBy="size"
         pointShapeBy="shapeValue"
         pointSizeRange={[2, 10]}
@@ -154,10 +175,10 @@ export default function App() {
         pointLabelColor="#ffffffcc"
         pointLabelFontSize={11}
         pointLabelClassName="salotto-label"
-        showLabels={true}
-        showDynamicLabels={true}
+        showLabels={settings.showLabels}
+        showDynamicLabels={settings.showLabels}
         showDynamicLabelsLimit={400}
-        showTopLabels={true}
+        showTopLabels={settings.showLabels}
         showTopLabelsLimit={400}
         showHoveredPointLabel={true}
         links={data.edges}
@@ -168,7 +189,7 @@ export default function App() {
         renderLinks={true}
         linkColorBy="color"
         linkColorStrategy={CosmographLinkColorStrategy.Direct}
-        linkDefaultColor="#4466bb"
+        linkDefaultColor={settings.networkEdgeColor}
         linkWidthBy="width"
         linkWidthStrategy={CosmographLinkWidthStrategy.Direct}
         linkDefaultWidth={0.5}
