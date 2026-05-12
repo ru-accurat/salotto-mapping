@@ -69,8 +69,10 @@ export default function Graph3D({
   const labelSpritesRef = useRef<Map<string, THREE.Sprite>>(new Map());
   const composerRef = useRef<EffectComposer | null>(null);
   const bloomPassRef = useRef<UnrealBloomPass | null>(null);
+  const bokehPassRef = useRef<BokehPass | null>(null);
   const afterimagePassRef = useRef<AfterimagePass | null>(null);
   const prevCamPosRef = useRef<THREE.Vector3>(new THREE.Vector3());
+  /** The true original renderer.render — stored once, never nulled */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const origRenderRef = useRef<((...args: any[]) => void) | null>(null);
 
@@ -165,6 +167,10 @@ export default function Graph3D({
         }
 
         graphRef.current = graph;
+
+        // Capture the true original renderer.render once
+        const renderer = graph.renderer() as THREE.WebGLRenderer;
+        origRenderRef.current = renderer.render.bind(renderer);
 
         // Create star field
         const createStarField = () => {
@@ -346,6 +352,12 @@ export default function Graph3D({
         camera.position.copy(state.position);
         camera.lookAt(state.lookAt);
 
+        // Update DOF focus to track the lookAt target
+        if (bokehPassRef.current) {
+          const focusDist = state.position.distanceTo(state.lookAt);
+          bokehPassRef.current.uniforms["focus"].value = focusDist;
+        }
+
         // Compute camera velocity for motion blur (skip first 5 frames to let buffer warm up)
         if (afterimagePassRef.current) {
           if (frameCount <= 5) {
@@ -443,44 +455,31 @@ export default function Graph3D({
     scene.add(stars);
   }, [settings.starField.enabled, settings.starField.count, settings.starField.size, settings.starField.color]);
 
-  // Unified post-processing: bloom + motion blur (afterimage during animation)
+  // Unified post-processing: bloom + DOF + motion blur
   useEffect(() => {
     const graph = graphRef.current;
-    if (!graph) return;
+    if (!graph || !origRenderRef.current) return;
 
     const totalGlow = Math.max(settings.nodeGlow, settings.edgeGlow);
     const needsPostProcessing = totalGlow > 0 || animating;
     const renderer = graph.renderer() as THREE.WebGLRenderer;
 
-    if (!needsPostProcessing) {
-      // Restore original render and dispose composer
-      if (origRenderRef.current) {
-        renderer.render = origRenderRef.current;
-        origRenderRef.current = null;
-      }
-      if (composerRef.current) {
-        composerRef.current.dispose();
-        composerRef.current = null;
-        bloomPassRef.current = null;
-        afterimagePassRef.current = null;
-      }
-      return;
-    }
+    // Always restore original renderer first to get a clean slate
+    renderer.render = origRenderRef.current;
 
-    const scene = graph.scene() as THREE.Scene;
-    const camera = graph.camera() as THREE.Camera;
-
-    // Clean up previous composer fully before rebuilding
+    // Dispose previous composer
     if (composerRef.current) {
       composerRef.current.dispose();
       composerRef.current = null;
+      bloomPassRef.current = null;
+      bokehPassRef.current = null;
+      afterimagePassRef.current = null;
     }
-    // Restore original renderer before creating new composer
-    // so the new composer's RenderPass uses the real render function
-    if (origRenderRef.current) {
-      renderer.render = origRenderRef.current;
-      origRenderRef.current = null;
-    }
+
+    if (!needsPostProcessing) return;
+
+    const scene = graph.scene() as THREE.Scene;
+    const camera = graph.camera() as THREE.Camera;
 
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
@@ -495,8 +494,6 @@ export default function Graph3D({
       );
       composer.addPass(bloomPass);
       bloomPassRef.current = bloomPass;
-    } else {
-      bloomPassRef.current = null;
     }
 
     // Animation-only passes: DOF + motion blur
@@ -505,11 +502,12 @@ export default function Graph3D({
       const dof = settingsRef.current.dofAmount;
       if (dof > 0) {
         const bokehPass = new BokehPass(scene, camera as THREE.PerspectiveCamera, {
-          focus: 120,
+          focus: 100, // will be updated dynamically in animation loop
           aperture: 0.001 + dof * 0.004,  // 0.001–0.005
           maxblur: 0.002 + dof * 0.008,    // 0.002–0.010
         });
         composer.addPass(bokehPass);
+        bokehPassRef.current = bokehPass;
       }
 
       // Motion blur (afterimage)
@@ -517,8 +515,6 @@ export default function Graph3D({
       afterimagePass.enabled = false; // enabled dynamically by anim loop
       composer.addPass(afterimagePass);
       afterimagePassRef.current = afterimagePass;
-    } else {
-      afterimagePassRef.current = null;
     }
 
     composerRef.current = composer;
@@ -526,7 +522,6 @@ export default function Graph3D({
     // Intercept renderer.render with recursion guard.
     // RenderPass inside the composer calls renderer.render() internally,
     // so without a guard we get infinite recursion → stack overflow.
-    origRenderRef.current = renderer.render.bind(renderer);
     let insideComposer = false;
     renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
       if (composerRef.current && !insideComposer) {
@@ -542,7 +537,15 @@ export default function Graph3D({
     }) as typeof renderer.render;
 
     return () => {
-      // Don't clean up here — the next run of this effect rebuilds
+      // Restore original renderer on cleanup
+      renderer.render = origRenderRef.current!;
+      if (composerRef.current) {
+        composerRef.current.dispose();
+        composerRef.current = null;
+        bloomPassRef.current = null;
+        bokehPassRef.current = null;
+        afterimagePassRef.current = null;
+      }
     };
   }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, animating]);
 
