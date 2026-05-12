@@ -501,13 +501,16 @@ export default function Graph3D({
 
     // Animation-only passes: DOF + motion blur
     if (animating) {
-      // Depth of field
-      const bokehPass = new BokehPass(scene, camera as THREE.PerspectiveCamera, {
-        focus: 120,      // focus distance
-        aperture: 0.002, // subtle aperture
-        maxblur: 0.006,  // gentle max blur
-      });
-      composer.addPass(bokehPass);
+      // Depth of field (controlled by dofAmount setting, 0 = off)
+      const dof = settingsRef.current.dofAmount;
+      if (dof > 0) {
+        const bokehPass = new BokehPass(scene, camera as THREE.PerspectiveCamera, {
+          focus: 120,
+          aperture: 0.001 + dof * 0.004,  // 0.001–0.005
+          maxblur: 0.002 + dof * 0.008,    // 0.002–0.010
+        });
+        composer.addPass(bokehPass);
+      }
 
       // Motion blur (afterimage)
       const afterimagePass = new AfterimagePass(0);
@@ -541,7 +544,7 @@ export default function Graph3D({
     return () => {
       // Don't clean up here — the next run of this effect rebuilds
     };
-  }, [settings.nodeGlow, settings.edgeGlow, animating]);
+  }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, animating]);
 
   if (error) {
     return (

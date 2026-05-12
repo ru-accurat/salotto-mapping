@@ -337,7 +337,9 @@ export default function ControlPanel({
           {/* Animation (3D only) */}
           {settings.mode === "3d" && onPlay && (
             <Section title="Animation">
-              <div style={{ display: "flex", gap: 4, marginBottom: 4 }}>
+              <SliderRow label="Depth of field" value={settings.dofAmount}
+                min={0} max={1} step={0.1} onChange={(v) => update({ dofAmount: v })} />
+              <div style={{ display: "flex", gap: 4, marginBottom: 4, marginTop: 6 }}>
                 <button
                   onClick={onPlay}
                   style={{

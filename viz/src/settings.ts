@@ -43,6 +43,9 @@ export interface ViewSettings {
   // Glow
   nodeGlow: number; // 0–2 (0 = off)
   edgeGlow: number; // 0–2 (0 = off)
+
+  // Depth of field (animation only)
+  dofAmount: number; // 0–1 (0 = off)
 }
 
 export const DEFAULT_SETTINGS: ViewSettings = {
@@ -81,6 +84,7 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   weightContrast: 1,
   nodeGlow: 0,
   edgeGlow: 0,
+  dofAmount: 0.5,
 };
 
 /** Encode settings into a compact URL search string */
@@ -104,6 +108,7 @@ export function settingsToParams(settings: ViewSettings, autoplay = false): stri
   if (settings.weightContrast !== d.weightContrast) p.set("wc", String(settings.weightContrast));
   if (settings.nodeGlow !== d.nodeGlow) p.set("ng", String(settings.nodeGlow));
   if (settings.edgeGlow !== d.edgeGlow) p.set("eg", String(settings.edgeGlow));
+  if (settings.dofAmount !== d.dofAmount) p.set("dof", String(settings.dofAmount));
 
   // Node colors (only if different from default)
   for (const cls of Object.keys(d.nodeColors) as (keyof NodeColors)[]) {
@@ -136,6 +141,7 @@ export function paramsToSettings(search: string): { settings: ViewSettings; auto
   if (p.has("wc")) s.weightContrast = Number(p.get("wc"));
   if (p.has("ng")) s.nodeGlow = Number(p.get("ng"));
   if (p.has("eg")) s.edgeGlow = Number(p.get("eg"));
+  if (p.has("dof")) s.dofAmount = Number(p.get("dof"));
 
   for (const cls of Object.keys(DEFAULT_SETTINGS.nodeColors) as (keyof NodeColors)[]) {
     if (p.has(`nc_${cls}`)) s.nodeColors[cls] = p.get(`nc_${cls}`)!;
