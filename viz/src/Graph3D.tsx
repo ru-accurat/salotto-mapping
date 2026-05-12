@@ -105,14 +105,23 @@ export default function Graph3D({
       .d3VelocityDecay(0.3)
       .showNavInfo(false)
       .graphData({
-        // Strip pre-computed 2D positions so the 3D force simulation
-        // generates a proper three-dimensional layout
-        nodes: JSON.parse(JSON.stringify(nodes)).map((n: any) => {
-          delete n.x;
-          delete n.y;
-          return n;
-        }),
-        links: JSON.parse(JSON.stringify(edges)),
+        // Build clean node objects for d3-force — strip pre-computed 2D
+        // positions and internal fields that conflict with d3's own indexing
+        nodes: nodes.map((n) => ({
+          id: n.id,
+          name: n.name,
+          class: n.class,
+          shape: n.shape,
+          size: n.size,
+          _displayColor: n._displayColor,
+        })),
+        links: edges.map((e) => ({
+          source: e.source,
+          target: e.target,
+          color: e.color,
+          width: e.width,
+          kind: e.kind,
+        })),
       });
 
     graphRef.current = graph;
