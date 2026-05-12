@@ -103,7 +103,13 @@ export default function Graph3D({
       .d3VelocityDecay(0.3)
       .showNavInfo(false)
       .graphData({
-        nodes: JSON.parse(JSON.stringify(nodes)),
+        // Strip pre-computed 2D positions so the 3D force simulation
+        // generates a proper three-dimensional layout
+        nodes: JSON.parse(JSON.stringify(nodes)).map((n: any) => {
+          delete n.x;
+          delete n.y;
+          return n;
+        }),
         links: JSON.parse(JSON.stringify(edges)),
       });
 
