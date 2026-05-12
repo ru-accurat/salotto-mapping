@@ -323,14 +323,20 @@ export default function Graph3D({
       directorRef.current = director;
       animStartRef.current = performance.now();
 
+      // Reset prev camera position to avoid velocity spike on first frame
+      const initialState = director.update(0);
+      prevCamPosRef.current.copy(initialState.position);
+
       // Animation loop
       let lastTime = performance.now();
+      let frameCount = 0;
       const animate = () => {
         if (!animatingRef.current || !graphRef.current) return;
 
         const now = performance.now();
         const dt = (now - lastTime) / 1000;
         lastTime = now;
+        frameCount++;
 
         const elapsed = (now - animStartRef.current) / 1000;
         const state = director.update(elapsed);
@@ -340,21 +346,23 @@ export default function Graph3D({
         camera.position.copy(state.position);
         camera.lookAt(state.lookAt);
 
-        // Compute camera velocity for motion blur
-        const velocity = dt > 0
-          ? state.position.distanceTo(prevCamPosRef.current) / dt
-          : 0;
-        prevCamPosRef.current.copy(state.position);
-
-        // Adjust afterimage damp based on velocity
-        // Low velocity (~0-20) → no blur, high velocity (~50+) → strong blur
+        // Compute camera velocity for motion blur (skip first 5 frames to let buffer warm up)
         if (afterimagePassRef.current) {
-          const speed = Math.min(velocity, 120);
-          const blurAmount = Math.max(0, (speed - 15) / 100); // 0–1 range
-          const damp = blurAmount > 0.02 ? 0.6 + blurAmount * 0.35 : 0; // 0 or 0.6–0.95
-          afterimagePassRef.current.uniforms["damp"].value = damp;
-          afterimagePassRef.current.enabled = damp > 0;
+          if (frameCount <= 5) {
+            afterimagePassRef.current.uniforms["damp"].value = 0;
+            afterimagePassRef.current.enabled = false;
+          } else {
+            const velocity = dt > 0
+              ? state.position.distanceTo(prevCamPosRef.current) / dt
+              : 0;
+            const speed = Math.min(velocity, 120);
+            const blurAmount = Math.max(0, (speed - 15) / 100); // 0–1 range
+            const damp = blurAmount > 0.02 ? 0.6 + blurAmount * 0.35 : 0; // 0 or 0.6–0.95
+            afterimagePassRef.current.uniforms["damp"].value = damp;
+            afterimagePassRef.current.enabled = damp > 0;
+          }
         }
+        prevCamPosRef.current.copy(state.position);
 
         // Report opacity for vignette fade
         onAnimationOpacityRef.current?.(state.opacity);
@@ -462,9 +470,16 @@ export default function Graph3D({
     const scene = graph.scene() as THREE.Scene;
     const camera = graph.camera() as THREE.Camera;
 
-    // Rebuild composer with current combination of passes
+    // Clean up previous composer fully before rebuilding
     if (composerRef.current) {
       composerRef.current.dispose();
+      composerRef.current = null;
+    }
+    // Restore original renderer before creating new composer
+    // so the new composer's RenderPass uses the real render function
+    if (origRenderRef.current) {
+      renderer.render = origRenderRef.current;
+      origRenderRef.current = null;
     }
 
     const composer = new EffectComposer(renderer);
@@ -508,9 +523,7 @@ export default function Graph3D({
     // Intercept renderer.render with recursion guard.
     // RenderPass inside the composer calls renderer.render() internally,
     // so without a guard we get infinite recursion → stack overflow.
-    if (!origRenderRef.current) {
-      origRenderRef.current = renderer.render.bind(renderer);
-    }
+    origRenderRef.current = renderer.render.bind(renderer);
     let insideComposer = false;
     renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
       if (composerRef.current && !insideComposer) {
