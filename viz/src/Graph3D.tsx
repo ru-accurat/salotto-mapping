@@ -505,13 +505,21 @@ export default function Graph3D({
 
     composerRef.current = composer;
 
-    // Intercept renderer.render
+    // Intercept renderer.render with recursion guard.
+    // RenderPass inside the composer calls renderer.render() internally,
+    // so without a guard we get infinite recursion → stack overflow.
     if (!origRenderRef.current) {
       origRenderRef.current = renderer.render.bind(renderer);
     }
+    let insideComposer = false;
     renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
-      if (composerRef.current) {
-        composerRef.current.render();
+      if (composerRef.current && !insideComposer) {
+        insideComposer = true;
+        try {
+          composerRef.current.render();
+        } finally {
+          insideComposer = false;
+        }
       } else if (origRenderRef.current) {
         origRenderRef.current(_scene, _camera);
       }
