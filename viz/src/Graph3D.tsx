@@ -367,9 +367,10 @@ export default function Graph3D({
             const velocity = dt > 0
               ? state.position.distanceTo(prevCamPosRef.current) / dt
               : 0;
+            const mbScale = settingsRef.current.motionBlur;
             const speed = Math.min(velocity, 120);
-            const blurAmount = Math.max(0, (speed - 15) / 100); // 0–1 range
-            const damp = blurAmount > 0.02 ? 0.6 + blurAmount * 0.35 : 0; // 0 or 0.6–0.95
+            const blurAmount = Math.max(0, (speed - 15) / 100) * mbScale; // 0–1 scaled by setting
+            const damp = blurAmount > 0.02 ? 0.4 + blurAmount * 0.3 : 0; // 0 or 0.4–0.7 (gentler)
             afterimagePassRef.current.uniforms["damp"].value = damp;
             afterimagePassRef.current.enabled = damp > 0;
           }
@@ -510,11 +511,13 @@ export default function Graph3D({
         bokehPassRef.current = bokehPass;
       }
 
-      // Motion blur (afterimage)
-      const afterimagePass = new AfterimagePass(0);
-      afterimagePass.enabled = false; // enabled dynamically by anim loop
-      composer.addPass(afterimagePass);
-      afterimagePassRef.current = afterimagePass;
+      // Motion blur (afterimage) — only if motionBlur > 0
+      if (settingsRef.current.motionBlur > 0) {
+        const afterimagePass = new AfterimagePass(0);
+        afterimagePass.enabled = false; // enabled dynamically by anim loop
+        composer.addPass(afterimagePass);
+        afterimagePassRef.current = afterimagePass;
+      }
     }
 
     composerRef.current = composer;
@@ -547,7 +550,7 @@ export default function Graph3D({
         afterimagePassRef.current = null;
       }
     };
-  }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, animating]);
+  }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, settings.motionBlur, animating]);
 
   if (error) {
     return (

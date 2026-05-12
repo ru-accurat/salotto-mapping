@@ -339,6 +339,8 @@ export default function ControlPanel({
             <Section title="Animation">
               <SliderRow label="Depth of field" value={settings.dofAmount}
                 min={0} max={1} step={0.1} onChange={(v) => update({ dofAmount: v })} />
+              <SliderRow label="Motion blur" value={settings.motionBlur}
+                min={0} max={1} step={0.1} onChange={(v) => update({ motionBlur: v })} />
               <div style={{ display: "flex", gap: 4, marginBottom: 4, marginTop: 6 }}>
                 <button
                   onClick={onPlay}
