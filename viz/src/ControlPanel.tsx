@@ -1,5 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { ViewSettings, NodeColors, StarFieldSettings } from "./settings";
+
+interface Preset {
+  name: string;
+  settings: ViewSettings;
+  createdAt: number;
+}
+
+const PRESETS_KEY = "salotto-mapping-presets";
+
+function loadPresets(): Preset[] {
+  try {
+    const raw = localStorage.getItem(PRESETS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+function savePresets(presets: Preset[]) {
+  localStorage.setItem(PRESETS_KEY, JSON.stringify(presets));
+}
 
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
@@ -58,6 +79,31 @@ export default function ControlPanel({
   onChange: (s: ViewSettings) => void;
 }) {
   const [collapsed, setCollapsed] = useState(false);
+  const [presets, setPresets] = useState<Preset[]>(loadPresets);
+  const [presetName, setPresetName] = useState("");
+  const [showSaveInput, setShowSaveInput] = useState(false);
+
+  const refreshPresets = useCallback(() => setPresets(loadPresets()), []);
+
+  const handleSavePreset = () => {
+    const name = presetName.trim();
+    if (!name) return;
+    const next = [...presets, { name, settings: { ...settings }, createdAt: Date.now() }];
+    savePresets(next);
+    setPresets(next);
+    setPresetName("");
+    setShowSaveInput(false);
+  };
+
+  const handleDeletePreset = (index: number) => {
+    const next = presets.filter((_, i) => i !== index);
+    savePresets(next);
+    setPresets(next);
+  };
+
+  const handleLoadPreset = (preset: Preset) => {
+    onChange({ ...preset.settings });
+  };
 
   const update = (partial: Partial<ViewSettings>) => onChange({ ...settings, ...partial });
   const updateNodeColor = (cls: keyof NodeColors, color: string) =>
@@ -115,6 +161,90 @@ export default function ControlPanel({
                 </button>
               ))}
             </div>
+          </Section>
+
+          {/* Presets */}
+          <Section title="Presets">
+            {presets.length > 0 && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 2, marginBottom: 6 }}>
+                {presets.map((p, i) => (
+                  <div key={i} style={{
+                    display: "flex", alignItems: "center", gap: 4,
+                    padding: "3px 6px", borderRadius: 4,
+                    background: "rgba(255,255,255,0.04)",
+                    cursor: "pointer",
+                  }}>
+                    <span
+                      onClick={() => handleLoadPreset(p)}
+                      style={{
+                        flex: 1, fontSize: 11, color: "#ffffffcc",
+                        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                      }}
+                      title={`Load "${p.name}"`}
+                    >
+                      {p.name}
+                    </span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); handleDeletePreset(i); }}
+                      style={{
+                        background: "none", border: "none", color: "#ffffff44",
+                        cursor: "pointer", fontSize: 12, padding: "0 2px",
+                        lineHeight: 1, flexShrink: 0,
+                      }}
+                      title="Delete preset"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            {showSaveInput ? (
+              <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+                <input
+                  autoFocus
+                  type="text"
+                  value={presetName}
+                  onChange={(e) => setPresetName(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSavePreset();
+                    if (e.key === "Escape") { setShowSaveInput(false); setPresetName(""); }
+                  }}
+                  placeholder="Preset name…"
+                  style={{
+                    flex: 1, fontSize: 11, padding: "3px 6px",
+                    background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)",
+                    borderRadius: 4, color: "#ffffffcc", outline: "none",
+                    fontFamily: FONT,
+                  }}
+                />
+                <button
+                  onClick={handleSavePreset}
+                  disabled={!presetName.trim()}
+                  style={{
+                    fontSize: 11, padding: "3px 8px", cursor: presetName.trim() ? "pointer" : "default",
+                    border: "1px solid rgba(95,230,200,0.3)", borderRadius: 4,
+                    background: presetName.trim() ? "rgba(95,230,200,0.15)" : "transparent",
+                    color: presetName.trim() ? "#5fe6c8" : "#ffffff44",
+                    fontFamily: FONT, fontWeight: 500,
+                  }}
+                >
+                  Save
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowSaveInput(true)}
+                style={{
+                  width: "100%", padding: "4px 0", fontSize: 11, cursor: "pointer",
+                  border: "1px solid rgba(255,255,255,0.15)", borderRadius: 4,
+                  background: "transparent", color: "#ffffff88",
+                  fontFamily: FONT, fontWeight: 500,
+                }}
+              >
+                + Save current
+              </button>
+            )}
           </Section>
 
           {/* Background */}
