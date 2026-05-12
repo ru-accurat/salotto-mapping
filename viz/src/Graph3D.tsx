@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass.js";
 import SpriteText from "three-spritetext";
 import type { ViewSettings, NodeColors } from "./settings";
 import { CameraDirector, createDefaultChoreography } from "./director";
@@ -77,6 +78,8 @@ export default function Graph3D({
   const labelSpritesRef = useRef<Map<string, THREE.Sprite>>(new Map());
   const composerRef = useRef<EffectComposer | null>(null);
   const bloomPassRef = useRef<UnrealBloomPass | null>(null);
+  const afterimagePassRef = useRef<AfterimagePass | null>(null);
+  const prevCamPosRef = useRef<THREE.Vector3>(new THREE.Vector3());
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const origRenderRef = useRef<((...args: any[]) => void) | null>(null);
 
@@ -324,16 +327,37 @@ export default function Graph3D({
       animStartRef.current = performance.now();
 
       // Animation loop
+      let lastTime = performance.now();
       const animate = () => {
         if (!animatingRef.current || !graphRef.current) return;
 
-        const elapsed = (performance.now() - animStartRef.current) / 1000;
+        const now = performance.now();
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+
+        const elapsed = (now - animStartRef.current) / 1000;
         const state = director.update(elapsed);
 
         // Move camera
         const camera = graphRef.current.camera() as THREE.PerspectiveCamera;
         camera.position.copy(state.position);
         camera.lookAt(state.lookAt);
+
+        // Compute camera velocity for motion blur
+        const velocity = dt > 0
+          ? state.position.distanceTo(prevCamPosRef.current) / dt
+          : 0;
+        prevCamPosRef.current.copy(state.position);
+
+        // Adjust afterimage damp based on velocity
+        // Low velocity (~0-20) → no blur, high velocity (~50+) → strong blur
+        if (afterimagePassRef.current) {
+          const speed = Math.min(velocity, 120);
+          const blurAmount = Math.max(0, (speed - 15) / 100); // 0–1 range
+          const damp = blurAmount > 0.02 ? 0.6 + blurAmount * 0.35 : 0; // 0 or 0.6–0.95
+          afterimagePassRef.current.uniforms["damp"].value = damp;
+          afterimagePassRef.current.enabled = damp > 0;
+        }
 
         // Report opacity for vignette fade
         onAnimationOpacityRef.current?.(state.opacity);
@@ -411,16 +435,17 @@ export default function Graph3D({
     scene.add(stars);
   }, [settings.starField.enabled, settings.starField.count, settings.starField.size, settings.starField.color]);
 
-  // React to glow/bloom changes — intercepts the renderer to add bloom
+  // Unified post-processing: bloom + motion blur (afterimage during animation)
   useEffect(() => {
     const graph = graphRef.current;
     if (!graph) return;
 
     const totalGlow = Math.max(settings.nodeGlow, settings.edgeGlow);
+    const needsPostProcessing = totalGlow > 0 || animating;
     const renderer = graph.renderer() as THREE.WebGLRenderer;
 
-    if (totalGlow <= 0) {
-      // Restore original render method if we patched it
+    if (!needsPostProcessing) {
+      // Restore original render and dispose composer
       if (origRenderRef.current) {
         renderer.render = origRenderRef.current;
         origRenderRef.current = null;
@@ -429,6 +454,7 @@ export default function Graph3D({
         composerRef.current.dispose();
         composerRef.current = null;
         bloomPassRef.current = null;
+        afterimagePassRef.current = null;
       }
       return;
     }
@@ -436,40 +462,56 @@ export default function Graph3D({
     const scene = graph.scene() as THREE.Scene;
     const camera = graph.camera() as THREE.Camera;
 
-    if (!composerRef.current) {
-      const composer = new EffectComposer(renderer);
-      composer.addPass(new RenderPass(scene, camera));
+    // Rebuild composer with current combination of passes
+    if (composerRef.current) {
+      composerRef.current.dispose();
+    }
 
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+
+    // Bloom pass (if glow > 0)
+    if (totalGlow > 0) {
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
         totalGlow * 1.0,
-        0.6,    // radius
-        0.1,    // threshold — low so colors bloom
+        0.6,
+        0.1,
       );
       composer.addPass(bloomPass);
-
-      composerRef.current = composer;
       bloomPassRef.current = bloomPass;
+    } else {
+      bloomPassRef.current = null;
+    }
 
-      // Intercept the renderer.render call: when the library renders,
-      // we run the bloom composer instead
-      if (!origRenderRef.current) {
-        origRenderRef.current = renderer.render.bind(renderer);
+    // Afterimage pass for motion blur (during animation)
+    if (animating) {
+      const afterimagePass = new AfterimagePass(0); // start with no trail
+      afterimagePass.enabled = false; // enabled dynamically by anim loop
+      composer.addPass(afterimagePass);
+      afterimagePassRef.current = afterimagePass;
+    } else {
+      afterimagePassRef.current = null;
+    }
+
+    composerRef.current = composer;
+
+    // Intercept renderer.render
+    if (!origRenderRef.current) {
+      origRenderRef.current = renderer.render.bind(renderer);
+    }
+    renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
+      if (composerRef.current) {
+        composerRef.current.render();
+      } else if (origRenderRef.current) {
+        origRenderRef.current(_scene, _camera);
       }
-      renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
-        if (composerRef.current) {
-          composerRef.current.render();
-        } else if (origRenderRef.current) {
-          origRenderRef.current(_scene, _camera);
-        }
-      }) as typeof renderer.render;
-    }
+    }) as typeof renderer.render;
 
-    // Update bloom strength live
-    if (bloomPassRef.current) {
-      bloomPassRef.current.strength = totalGlow * 1.0;
-    }
-  }, [settings.nodeGlow, settings.edgeGlow]);
+    return () => {
+      // Don't clean up here — the next run of this effect rebuilds
+    };
+  }, [settings.nodeGlow, settings.edgeGlow, animating]);
 
   if (error) {
     return (
