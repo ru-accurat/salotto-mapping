@@ -77,6 +77,8 @@ export default function Graph3D({
   const labelSpritesRef = useRef<Map<string, THREE.Sprite>>(new Map());
   const composerRef = useRef<EffectComposer | null>(null);
   const bloomPassRef = useRef<UnrealBloomPass | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const origRenderRef = useRef<((...args: any[]) => void) | null>(null);
 
   // Full rebuild when data changes
   useEffect(() => {
@@ -409,43 +411,64 @@ export default function Graph3D({
     scene.add(stars);
   }, [settings.starField.enabled, settings.starField.count, settings.starField.size, settings.starField.color]);
 
-  // React to glow/bloom changes
+  // React to glow/bloom changes — intercepts the renderer to add bloom
   useEffect(() => {
     const graph = graphRef.current;
     if (!graph) return;
 
-    const nodeGlow = settings.nodeGlow;
-    const edgeGlow = settings.edgeGlow;
-    const totalGlow = Math.max(nodeGlow, edgeGlow);
+    const totalGlow = Math.max(settings.nodeGlow, settings.edgeGlow);
+    const renderer = graph.renderer() as THREE.WebGLRenderer;
 
     if (totalGlow <= 0) {
-      // Remove bloom
+      // Restore original render method if we patched it
+      if (origRenderRef.current) {
+        renderer.render = origRenderRef.current;
+        origRenderRef.current = null;
+      }
       if (composerRef.current) {
-        graph.postProcessingComposer(null);
+        composerRef.current.dispose();
         composerRef.current = null;
         bloomPassRef.current = null;
       }
       return;
     }
 
-    const renderer = graph.renderer() as THREE.WebGLRenderer;
     const scene = graph.scene() as THREE.Scene;
     const camera = graph.camera() as THREE.Camera;
 
-    const composer = new EffectComposer(renderer);
-    composer.addPass(new RenderPass(scene, camera));
+    if (!composerRef.current) {
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
 
-    const bloomPass = new UnrealBloomPass(
-      new THREE.Vector2(window.innerWidth, window.innerHeight),
-      totalGlow * 0.8,  // strength
-      0.4,              // radius
-      0.85,             // threshold
-    );
-    composer.addPass(bloomPass);
+      const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        totalGlow * 1.0,
+        0.6,    // radius
+        0.1,    // threshold — low so colors bloom
+      );
+      composer.addPass(bloomPass);
 
-    composerRef.current = composer;
-    bloomPassRef.current = bloomPass;
-    graph.postProcessingComposer(composer);
+      composerRef.current = composer;
+      bloomPassRef.current = bloomPass;
+
+      // Intercept the renderer.render call: when the library renders,
+      // we run the bloom composer instead
+      if (!origRenderRef.current) {
+        origRenderRef.current = renderer.render.bind(renderer);
+      }
+      renderer.render = ((_scene: THREE.Object3D, _camera: THREE.Camera) => {
+        if (composerRef.current) {
+          composerRef.current.render();
+        } else if (origRenderRef.current) {
+          origRenderRef.current(_scene, _camera);
+        }
+      }) as typeof renderer.render;
+    }
+
+    // Update bloom strength live
+    if (bloomPassRef.current) {
+      bloomPassRef.current.strength = totalGlow * 1.0;
+    }
   }, [settings.nodeGlow, settings.edgeGlow]);
 
   if (error) {
