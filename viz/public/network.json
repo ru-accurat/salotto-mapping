@@ -4550,7 +4550,7 @@
     },
     {
       "id": "SALOTTO",
-      "name": "Salotto Brooklyn",
+      "name": "Salotto",
       "class": "salotto",
       "shape": "hexagon",
       "member_status": "co_founder",

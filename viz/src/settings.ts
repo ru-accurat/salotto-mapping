@@ -39,6 +39,10 @@ export interface ViewSettings {
 
   // Edge weight contrast (exponent applied to normalized weight)
   weightContrast: number; // 0.2–5
+
+  // Glow
+  nodeGlow: number; // 0–2 (0 = off)
+  edgeGlow: number; // 0–2 (0 = off)
 }
 
 export const DEFAULT_SETTINGS: ViewSettings = {
@@ -75,4 +79,6 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   showLabels: true,
   gravity: 0.5,
   weightContrast: 1,
+  nodeGlow: 0,
+  edgeGlow: 0,
 };

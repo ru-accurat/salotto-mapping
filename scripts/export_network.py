@@ -103,7 +103,7 @@ def main():
     SALOTTO_ID = "SALOTTO"
     nodes[SALOTTO_ID] = {
         "id": SALOTTO_ID,
-        "name": "Salotto Brooklyn",
+        "name": "Salotto",
         "class": "salotto",
         "shape": "hexagon",
         "member_status": "co_founder",

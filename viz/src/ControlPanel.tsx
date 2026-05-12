@@ -315,6 +315,14 @@ export default function ControlPanel({
               min={0} max={2} step={0.1} onChange={(v) => update({ gravity: v })} />
           </Section>
 
+          {/* Glow */}
+          <Section title="Glow">
+            <SliderRow label="Node glow" value={settings.nodeGlow}
+              min={0} max={2} step={0.1} onChange={(v) => update({ nodeGlow: v })} />
+            <SliderRow label="Edge glow" value={settings.edgeGlow}
+              min={0} max={2} step={0.1} onChange={(v) => update({ edgeGlow: v })} />
+          </Section>
+
           {/* Weight contrast */}
           <Section title="Edge contrast">
             <SliderRow label="Contrast" value={settings.weightContrast}

@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import SpriteText from "three-spritetext";
 import type { ViewSettings, NodeColors } from "./settings";
 import { CameraDirector, createDefaultChoreography } from "./director";
@@ -72,6 +75,8 @@ export default function Graph3D({
   const animStartRef = useRef<number>(0);
   const animFrameRef = useRef<number>(0);
   const labelSpritesRef = useRef<Map<string, THREE.Sprite>>(new Map());
+  const composerRef = useRef<EffectComposer | null>(null);
+  const bloomPassRef = useRef<UnrealBloomPass | null>(null);
 
   // Full rebuild when data changes
   useEffect(() => {
@@ -114,7 +119,7 @@ export default function Graph3D({
 
             const sprite = new SpriteText(n.name, 1.2, color);
             sprite.fontFace = "Helvetica Neue, Helvetica, Arial, sans-serif";
-            sprite.fontWeight = "400";
+            sprite.fontWeight = "700";
             sprite.backgroundColor = "rgba(0,0,0,0)";
             sprite.padding = 0.3;
             sprite.position.set(0, r + 1.5, 0);
@@ -416,6 +421,45 @@ export default function Graph3D({
     stars.userData._starField = true;
     scene.add(stars);
   }, [settings.starField.enabled, settings.starField.count, settings.starField.size, settings.starField.color]);
+
+  // React to glow/bloom changes
+  useEffect(() => {
+    const graph = graphRef.current;
+    if (!graph) return;
+
+    const nodeGlow = settings.nodeGlow;
+    const edgeGlow = settings.edgeGlow;
+    const totalGlow = Math.max(nodeGlow, edgeGlow);
+
+    if (totalGlow <= 0) {
+      // Remove bloom
+      if (composerRef.current) {
+        graph.postProcessingComposer(null);
+        composerRef.current = null;
+        bloomPassRef.current = null;
+      }
+      return;
+    }
+
+    const renderer = graph.renderer() as THREE.WebGLRenderer;
+    const scene = graph.scene() as THREE.Scene;
+    const camera = graph.camera() as THREE.Camera;
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(window.innerWidth, window.innerHeight),
+      totalGlow * 0.8,  // strength
+      0.4,              // radius
+      0.85,             // threshold
+    );
+    composer.addPass(bloomPass);
+
+    composerRef.current = composer;
+    bloomPassRef.current = bloomPass;
+    graph.postProcessingComposer(composer);
+  }, [settings.nodeGlow, settings.edgeGlow]);
 
   if (error) {
     return (

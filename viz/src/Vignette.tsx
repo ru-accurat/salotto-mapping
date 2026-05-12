@@ -14,7 +14,7 @@ export default function Vignette({ opacity = 1 }: { opacity?: number }) {
           inset: 0,
           pointerEvents: "none",
           zIndex: 10,
-          background: "radial-gradient(ellipse 70% 65% at 50% 50%, transparent 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.6) 65%, rgba(0,0,0,0.9) 80%, #000000 100%)",
+          background: "radial-gradient(ellipse 55% 50% at 50% 50%, transparent 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.92) 70%, #000000 82%)",
         }}
       />
       {/* Fade-to-black layer — controlled by animation */}
