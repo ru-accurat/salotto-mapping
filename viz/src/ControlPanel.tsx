@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ViewSettings, NodeColors } from "./settings";
+import type { ViewSettings, NodeColors, StarFieldSettings } from "./settings";
 
 const FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
@@ -64,6 +64,8 @@ export default function ControlPanel({
     update({ nodeColors: { ...settings.nodeColors, [cls]: color } });
   const updateNodeSize = (cls: keyof NodeColors, val: number) =>
     update({ nodeSizeMultipliers: { ...settings.nodeSizeMultipliers, [cls]: val } });
+  const updateStarField = (partial: Partial<StarFieldSettings>) =>
+    update({ starField: { ...settings.starField, ...partial } });
 
   return (
     <div style={{
@@ -114,6 +116,34 @@ export default function ControlPanel({
               ))}
             </div>
           </Section>
+
+          {/* Background */}
+          <Section title="Background">
+            <ColorRow label="Color" value={settings.backgroundColor}
+              onChange={(v) => update({ backgroundColor: v })} />
+          </Section>
+
+          {/* Star field (3D only) */}
+          {settings.mode === "3d" && (
+            <Section title="Star field">
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                <span style={{ fontSize: 11, color: "#ffffffaa" }}>Enabled</span>
+                <input type="checkbox" checked={settings.starField.enabled}
+                  onChange={(e) => updateStarField({ enabled: e.target.checked })}
+                  style={{ accentColor: "#5fe6c8" }} />
+              </div>
+              {settings.starField.enabled && (
+                <>
+                  <SliderRow label="Count" value={settings.starField.count}
+                    min={100} max={10000} step={100} onChange={(v) => updateStarField({ count: v })} />
+                  <SliderRow label="Size" value={settings.starField.size}
+                    min={0.1} max={5} step={0.1} onChange={(v) => updateStarField({ size: v })} />
+                  <ColorRow label="Color" value={settings.starField.color}
+                    onChange={(v) => updateStarField({ color: v })} />
+                </>
+              )}
+            </Section>
+          )}
 
           {/* Edges */}
           <Section title="Edges">

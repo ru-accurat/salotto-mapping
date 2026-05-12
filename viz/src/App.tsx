@@ -143,7 +143,7 @@ export default function App() {
 
   if (settings.mode === "3d") {
     return (
-      <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
+      <div style={{ width: "100vw", height: "100vh", background: settings.backgroundColor }}>
         {panel}
         <Suspense fallback={null}>
           <Graph3D nodes={data.nodes} edges={data.edges} settings={settings} />
@@ -153,11 +153,11 @@ export default function App() {
   }
 
   return (
-    <div style={{ width: "100vw", height: "100vh", background: "#000" }}>
+    <div style={{ width: "100vw", height: "100vh", background: settings.backgroundColor }}>
       {panel}
       <Cosmograph
         ref={cosmographRef}
-        backgroundColor="#000000"
+        backgroundColor={settings.backgroundColor}
         enableSimulation={true}
         simulationGravity={settings.gravity}
         simulationCenter={0.5}

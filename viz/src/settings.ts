@@ -7,8 +7,19 @@ export interface NodeColors {
 }
 
 
+export interface StarFieldSettings {
+  enabled: boolean;
+  count: number;      // 100–10000
+  size: number;       // 0.1–5
+  color: string;
+}
+
 export interface ViewSettings {
   mode: "2d" | "3d";
+
+  // Background
+  backgroundColor: string;
+  starField: StarFieldSettings;
 
   // Edge appearance
   salottoEdgeColor: string;
@@ -32,6 +43,14 @@ export interface ViewSettings {
 
 export const DEFAULT_SETTINGS: ViewSettings = {
   mode: "3d",
+
+  backgroundColor: "#000000",
+  starField: {
+    enabled: true,
+    count: 2000,
+    size: 0.8,
+    color: "#ffffff",
+  },
 
   salottoEdgeColor: "#d4915a",
   networkEdgeColor: "#4466bb",

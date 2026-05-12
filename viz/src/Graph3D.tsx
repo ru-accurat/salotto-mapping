@@ -60,8 +60,10 @@ export default function Graph3D({
     const labelSprites = new Map<string, THREE.Sprite>();
     const s = settingsRef.current;
 
+    let starFieldObj: THREE.Points | null = null;
+
     const graph = ForceGraph3D()(containerRef.current)
-      .backgroundColor("#000000")
+      .backgroundColor(s.backgroundColor)
       .nodeId("id")
       .nodeLabel("")
       .nodeThreeObject((n: GraphNode) => {
@@ -114,6 +116,48 @@ export default function Graph3D({
       });
 
     graphRef.current = graph;
+
+    // Create star field
+    const createStarField = () => {
+      const sf = settingsRef.current.starField;
+      if (starFieldObj) {
+        graph.scene().remove(starFieldObj);
+        starFieldObj.geometry.dispose();
+        (starFieldObj.material as THREE.PointsMaterial).dispose();
+        starFieldObj = null;
+      }
+      if (!sf.enabled) return;
+
+      const starGeo = new THREE.BufferGeometry();
+      const positions = new Float32Array(sf.count * 3);
+      const radius = 800;
+      for (let i = 0; i < sf.count; i++) {
+        // Uniform distribution on sphere surface
+        const u = Math.random();
+        const v = Math.random();
+        const theta = 2 * Math.PI * u;
+        const phi = Math.acos(2 * v - 1);
+        const r = radius * (0.6 + 0.4 * Math.random()); // slight depth variation
+        positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[i * 3 + 2] = r * Math.cos(phi);
+      }
+      starGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+      const starMat = new THREE.PointsMaterial({
+        color: sf.color,
+        size: sf.size,
+        sizeAttenuation: true,
+        transparent: true,
+        opacity: 0.8,
+      });
+
+      starFieldObj = new THREE.Points(starGeo, starMat);
+      graph.scene().add(starFieldObj);
+    };
+
+    // Build star field after a short delay so the scene is ready
+    setTimeout(createStarField, 100);
 
     const updateLabels = () => {
       const showLabels = settingsRef.current.showLabels;
@@ -171,6 +215,52 @@ export default function Graph3D({
     graphRef.current.d3Force("charge")?.strength(-30 * (1 + settings.gravity));
     graphRef.current.d3ReheatSimulation();
   }, [settings.gravity]);
+
+  // React to background color changes
+  useEffect(() => {
+    if (!graphRef.current) return;
+    graphRef.current.backgroundColor(settings.backgroundColor);
+  }, [settings.backgroundColor]);
+
+  // React to star field changes
+  useEffect(() => {
+    if (!graphRef.current) return;
+    const scene = graphRef.current.scene() as THREE.Scene;
+    // Remove existing star field
+    const existing = scene.children.find((c: THREE.Object3D) => c instanceof THREE.Points && c.userData._starField);
+    if (existing) {
+      scene.remove(existing);
+      (existing as THREE.Points).geometry.dispose();
+      ((existing as THREE.Points).material as THREE.PointsMaterial).dispose();
+    }
+    if (!settings.starField.enabled) return;
+
+    const sf = settings.starField;
+    const starGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(sf.count * 3);
+    const radius = 800;
+    for (let i = 0; i < sf.count; i++) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const r = radius * (0.6 + 0.4 * Math.random());
+      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = r * Math.cos(phi);
+    }
+    starGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const starMat = new THREE.PointsMaterial({
+      color: sf.color,
+      size: sf.size,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.8,
+    });
+    const stars = new THREE.Points(starGeo, starMat);
+    stars.userData._starField = true;
+    scene.add(stars);
+  }, [settings.starField.enabled, settings.starField.count, settings.starField.size, settings.starField.color]);
 
   return <div ref={containerRef} style={{ width: "100vw", height: "100vh" }} />;
 }
