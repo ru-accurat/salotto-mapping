@@ -355,7 +355,7 @@ export default function Graph3D({
         // Update DOF focus to track the lookAt target
         if (bokehPassRef.current) {
           const focusDist = state.position.distanceTo(state.lookAt);
-          bokehPassRef.current.uniforms["focus"].value = focusDist;
+          (bokehPassRef.current.uniforms as Record<string, { value: number }>)["focus"].value = focusDist;
         }
 
         // Compute camera velocity for motion blur (skip first 5 frames to let buffer warm up)
