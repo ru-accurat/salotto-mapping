@@ -30,9 +30,6 @@ interface GraphEdge {
 }
 
 const MAX_LABELS = 300;
-/** Distance threshold for label fade during animation */
-const LABEL_FADE_NEAR = 30;
-const LABEL_FADE_FAR = 120;
 
 function nodeClassKey(n: GraphNode): keyof NodeColors {
   if (n.class === "salotto") return "salotto";

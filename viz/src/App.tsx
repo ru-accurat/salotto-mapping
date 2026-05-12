@@ -4,7 +4,7 @@ import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, 
 import type { CosmographRef } from "@cosmograph/react";
 import ControlPanel from "./ControlPanel";
 import Vignette from "./Vignette";
-import { DEFAULT_SETTINGS, paramsToSettings } from "./settings";
+import { paramsToSettings } from "./settings";
 import type { ViewSettings } from "./settings";
 
 const Graph3D = lazy(() => import("./Graph3D"));
