@@ -4,6 +4,7 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass.js";
+import { BokehPass } from "three/examples/jsm/postprocessing/BokehPass.js";
 import SpriteText from "three-spritetext";
 import type { ViewSettings, NodeColors } from "./settings";
 import { CameraDirector, createDefaultChoreography } from "./director";
@@ -44,13 +45,6 @@ function nodeClassKey(n: GraphNode): keyof NodeColors {
 function nodeRadius(n: GraphNode): number {
   const s = n.size || 3;
   return Math.cbrt(s) * 0.8;
-}
-
-export interface Graph3DHandle {
-  play: () => void;
-  stop: () => void;
-  preview: () => void;
-  exportVideo: () => void;
 }
 
 export default function Graph3D({
@@ -312,6 +306,12 @@ export default function Graph3D({
       graph.d3AlphaDecay(0.08);
       graph.d3VelocityDecay(0.6);
 
+      // Widen FOV for animation
+      const camera = graph.camera() as THREE.PerspectiveCamera;
+      const originalFov = camera.fov;
+      camera.fov = 75; // wider than default ~50
+      camera.updateProjectionMatrix();
+
       // Disable orbit controls
       const controls = graph.controls() as { enabled?: boolean };
       if (controls) controls.enabled = false;
@@ -370,12 +370,15 @@ export default function Graph3D({
       return () => {
         if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
 
-        // Restore controls
+        // Restore controls and FOV
         if (graph) {
           const c = graph.controls() as { enabled?: boolean };
           if (c) c.enabled = true;
           graph.d3AlphaDecay(0.02);
           graph.d3VelocityDecay(0.3);
+          const cam = graph.camera() as THREE.PerspectiveCamera;
+          cam.fov = originalFov;
+          cam.updateProjectionMatrix();
         }
         directorRef.current = null;
         onAnimationOpacityRef.current?.(1);
@@ -484,9 +487,18 @@ export default function Graph3D({
       bloomPassRef.current = null;
     }
 
-    // Afterimage pass for motion blur (during animation)
+    // Animation-only passes: DOF + motion blur
     if (animating) {
-      const afterimagePass = new AfterimagePass(0); // start with no trail
+      // Depth of field
+      const bokehPass = new BokehPass(scene, camera as THREE.PerspectiveCamera, {
+        focus: 120,      // focus distance
+        aperture: 0.002, // subtle aperture
+        maxblur: 0.006,  // gentle max blur
+      });
+      composer.addPass(bokehPass);
+
+      // Motion blur (afterimage)
+      const afterimagePass = new AfterimagePass(0);
       afterimagePass.enabled = false; // enabled dynamically by anim loop
       composer.addPass(afterimagePass);
       afterimagePassRef.current = afterimagePass;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { ViewSettings, NodeColors, StarFieldSettings } from "./settings";
+import { settingsToParams } from "./settings";
 
 interface Preset {
   name: string;
@@ -84,6 +85,7 @@ export default function ControlPanel({
   const [presets, setPresets] = useState<Preset[]>(loadPresets);
   const [presetName, setPresetName] = useState("");
   const [showSaveInput, setShowSaveInput] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleSavePreset = () => {
     const name = presetName.trim();
@@ -335,19 +337,40 @@ export default function ControlPanel({
           {/* Animation (3D only) */}
           {settings.mode === "3d" && onPlay && (
             <Section title="Animation">
-              <button
-                onClick={onPlay}
-                style={{
-                  width: "100%", padding: "6px 0", fontSize: 12, cursor: "pointer",
-                  border: "1px solid rgba(95,230,200,0.3)", borderRadius: 4,
-                  background: "rgba(95,230,200,0.15)", color: "#5fe6c8",
-                  fontFamily: FONT, fontWeight: 500,
-                }}
-              >
-                ▶ Play animation
-              </button>
-              <div style={{ fontSize: 9, color: "#ffffff44", marginTop: 4 }}>
-                2-min camera flight with vignette. Press ESC to stop.
+              <div style={{ display: "flex", gap: 4, marginBottom: 4 }}>
+                <button
+                  onClick={onPlay}
+                  style={{
+                    flex: 1, padding: "6px 0", fontSize: 12, cursor: "pointer",
+                    border: "1px solid rgba(95,230,200,0.3)", borderRadius: 4,
+                    background: "rgba(95,230,200,0.15)", color: "#5fe6c8",
+                    fontFamily: FONT, fontWeight: 500,
+                  }}
+                >
+                  ▶ Play
+                </button>
+                <button
+                  onClick={() => {
+                    const params = settingsToParams(settings, true);
+                    const url = `${window.location.origin}${window.location.pathname}?${params}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    });
+                  }}
+                  style={{
+                    flex: 1, padding: "6px 0", fontSize: 12, cursor: "pointer",
+                    border: "1px solid rgba(255,255,255,0.15)", borderRadius: 4,
+                    background: copied ? "rgba(95,230,200,0.15)" : "transparent",
+                    color: copied ? "#5fe6c8" : "#ffffff88",
+                    fontFamily: FONT, fontWeight: 500,
+                  }}
+                >
+                  {copied ? "Copied!" : "Share"}
+                </button>
+              </div>
+              <div style={{ fontSize: 9, color: "#ffffff44", marginTop: 2 }}>
+                Play: 2-min camera flight (ESC to stop). Share: copies URL with current settings + autoplay.
               </div>
             </Section>
           )}

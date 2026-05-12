@@ -4,7 +4,7 @@ import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, 
 import type { CosmographRef } from "@cosmograph/react";
 import ControlPanel from "./ControlPanel";
 import Vignette from "./Vignette";
-import { DEFAULT_SETTINGS } from "./settings";
+import { DEFAULT_SETTINGS, paramsToSettings } from "./settings";
 import type { ViewSettings } from "./settings";
 
 const Graph3D = lazy(() => import("./Graph3D"));
@@ -112,11 +112,15 @@ function nodeClassKey(node: Node): keyof ViewSettings["nodeColors"] {
   return "guest";
 }
 
+// Parse URL params once at module level
+const _urlConfig = paramsToSettings(window.location.search);
+
 export default function App() {
   const [rawData, setRawData] = useState<NetworkData | null>(null);
-  const [settings, setSettings] = useState<ViewSettings>(DEFAULT_SETTINGS);
+  const [settings, setSettings] = useState<ViewSettings>(_urlConfig.settings);
   const [animating, setAnimating] = useState(false);
   const [animOpacity, setAnimOpacity] = useState(1);
+  const autoplayTriggered = useRef(false);
   const cosmographRef = useRef<CosmographRef>(undefined);
 
   useEffect(() => {
@@ -137,6 +141,16 @@ export default function App() {
         setRawData(d);
       });
   }, []);
+
+  // Auto-play from URL param (once, after data loads)
+  useEffect(() => {
+    if (rawData && _urlConfig.autoplay && !autoplayTriggered.current) {
+      autoplayTriggered.current = true;
+      // Small delay so the 3D scene has time to initialize
+      const timer = setTimeout(() => setAnimating(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [rawData]);
 
   // ESC to stop animation
   useEffect(() => {

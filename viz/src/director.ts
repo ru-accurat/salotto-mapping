@@ -231,68 +231,68 @@ export class CameraDirector {
 
 export function createDefaultChoreography(): { waypoints: Waypoint[]; fadeIn: number; fadeOut: number } {
   const waypoints: Waypoint[] = [
-    // Act 1+2: Fade in on Salotto — wider orbit so connected labels are visible (0–20s)
+    // Act 1+2: Fade in on Salotto — wide orbit (0–20s)
     {
       target: "SALOTTO",
-      orbitRadius: 110,
-      orbitSpeed: 0.12,
+      orbitRadius: 160,
+      orbitSpeed: 0.10,
       dwellTime: 20,
       transitionTime: 0,
       elevationAngle: 0.25,
     },
-    // Act 3a: Transition to founders cluster — wide enough to show all 6 founders (20–28s), orbit (28–42s)
+    // Act 3a: Founders cluster (20–28s transition, 28–42s orbit)
     {
       target: "centroid:P001,P002,P003,P004,P005,P006",
-      orbitRadius: 130,
-      orbitSpeed: 0.15,
+      orbitRadius: 180,
+      orbitSpeed: 0.12,
       dwellTime: 14,
       transitionTime: 8,
       elevationAngle: 0.2,
     },
-    // Act 3b: Transition to Flou (42–48s), orbit (48–58s)
+    // Act 3b: Flou (42–48s transition, 48–58s orbit)
     {
       target: "O_FLOU",
-      orbitRadius: 60,
-      orbitSpeed: 0.25,
+      orbitRadius: 100,
+      orbitSpeed: 0.20,
       dwellTime: 10,
       transitionTime: 6,
-      elevationAngle: 0.35,
+      elevationAngle: 0.3,
     },
-    // Act 4a: First guest cluster drift (58–64s), orbit (64–78s)
+    // Act 4a: Guest cluster (58–64s transition, 64–78s orbit)
     {
       target: "centroid:guest",
-      orbitRadius: 100,
-      orbitSpeed: 0.18,
+      orbitRadius: 150,
+      orbitSpeed: 0.14,
       dwellTime: 14,
       transitionTime: 6,
       elevationAngle: 0.15,
     },
-    // Act 4b: Quick acceleration to ambient area (78–82s), orbit (82–92s)
+    // Act 4b: Ambient area (78–82s transition, 82–92s orbit)
     {
       target: "centroid:ambient",
-      orbitRadius: 90,
-      orbitSpeed: 0.22,
+      orbitRadius: 140,
+      orbitSpeed: 0.18,
       dwellTime: 10,
       transitionTime: 4,
       elevationAngle: -0.1,
     },
-    // Act 4c: Back toward guests from different angle (92–97s), orbit (97–107s)
+    // Act 4c: Back to guests from different angle (92–97s transition, 97–107s orbit)
     {
       target: "centroid:guest",
-      orbitRadius: 120,
-      orbitSpeed: 0.12,
+      orbitRadius: 170,
+      orbitSpeed: 0.10,
       dwellTime: 10,
       transitionTime: 5,
-      elevationAngle: 0.4,
+      elevationAngle: 0.35,
     },
-    // Act 5: Pull way back, zoom out (107–115s), dwell (115–120s)
+    // Act 5: Pull way back (107–115s transition, 115–120s dwell)
     {
       target: "SALOTTO",
-      orbitRadius: 300,
-      orbitSpeed: 0.08,
+      orbitRadius: 400,
+      orbitSpeed: 0.06,
       dwellTime: 5,
       transitionTime: 8,
-      elevationAngle: 0.5,
+      elevationAngle: 0.45,
     },
   ];
 
