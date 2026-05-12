@@ -239,25 +239,12 @@ export default function Graph3D({
           visible.sort((a, b) => a.dist - b.dist);
 
           if (isAnimating) {
-            // During animation: distance-based fade
+            // During animation: same behavior as regular 3D — show closest N in frustum
             const showSet = new Set(visible.slice(0, MAX_LABELS).map((v) => v.id));
             for (const [id, sprite] of labelSprites) {
-              const entry = visible.find((v) => v.id === id);
-              if (!entry || !showSet.has(id)) {
-                sprite.visible = false;
-                continue;
-              }
-              // Fade based on distance
-              const t = Math.max(0, Math.min(1, (entry.dist - LABEL_FADE_NEAR) / (LABEL_FADE_FAR - LABEL_FADE_NEAR)));
-              const alpha = 1 - t;
-              if (alpha < 0.05) {
-                sprite.visible = false;
-              } else {
-                sprite.visible = true;
-                // Adjust sprite material opacity
-                const mat = sprite.material as THREE.SpriteMaterial;
-                if (mat) mat.opacity = alpha;
-              }
+              sprite.visible = showSet.has(id);
+              const mat = sprite.material as THREE.SpriteMaterial;
+              if (mat) mat.opacity = 1;
             }
           } else {
             // Normal mode: show/hide based on showLabels setting
