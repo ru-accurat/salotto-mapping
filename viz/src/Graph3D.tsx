@@ -503,8 +503,8 @@ export default function Graph3D({
       if (dof > 0) {
         const bokehPass = new BokehPass(scene, camera as THREE.PerspectiveCamera, {
           focus: 100, // will be updated dynamically in animation loop
-          aperture: 0.001 + dof * 0.004,  // 0.001–0.005
-          maxblur: 0.002 + dof * 0.008,    // 0.002–0.010
+          aperture: dof * 0.0015,   // 0–0.0015
+          maxblur: dof * 0.003,     // 0–0.003
         });
         composer.addPass(bokehPass);
         bokehPassRef.current = bokehPass;

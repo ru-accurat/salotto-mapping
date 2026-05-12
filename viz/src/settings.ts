@@ -84,7 +84,7 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   weightContrast: 1,
   nodeGlow: 0,
   edgeGlow: 0,
-  dofAmount: 0.5,
+  dofAmount: 0,
 };
 
 /** Encode settings into a compact URL search string */
