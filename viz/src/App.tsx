@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import type { ErrorInfo, ReactNode } from "react";
 import { Cosmograph, CosmographPointColorStrategy, CosmographLinkWidthStrategy, CosmographLinkColorStrategy } from "@cosmograph/react";
 import type { CosmographRef } from "@cosmograph/react";
 import ControlPanel from "./ControlPanel";
@@ -6,6 +7,50 @@ import { DEFAULT_SETTINGS } from "./settings";
 import type { ViewSettings } from "./settings";
 
 const Graph3D = lazy(() => import("./Graph3D"));
+
+class Graph3DErrorBoundary extends Component<
+  { children: ReactNode; onReset?: () => void },
+  { hasError: boolean; error: string }
+> {
+  constructor(props: { children: ReactNode; onReset?: () => void }) {
+    super(props);
+    this.state = { hasError: false, error: "" };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error: error.message };
+  }
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error("Graph3D error boundary caught:", error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{
+          width: "100vw", height: "100vh", display: "flex",
+          alignItems: "center", justifyContent: "center",
+          color: "#ff6b6b", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+          flexDirection: "column", gap: 12,
+        }}>
+          <div style={{ fontSize: 16 }}>3D view crashed</div>
+          <div style={{ fontSize: 12, color: "#ffffff66", maxWidth: 400, textAlign: "center" }}>
+            {this.state.error}
+          </div>
+          <button
+            onClick={() => this.setState({ hasError: false, error: "" })}
+            style={{
+              marginTop: 8, padding: "6px 16px", background: "rgba(95,230,200,0.15)",
+              color: "#5fe6c8", border: "1px solid rgba(95,230,200,0.3)", borderRadius: 4,
+              cursor: "pointer",
+            }}
+          >
+            Retry
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 interface Node {
   id: string;
@@ -145,9 +190,11 @@ export default function App() {
     return (
       <div style={{ width: "100vw", height: "100vh", background: settings.backgroundColor }}>
         {panel}
-        <Suspense fallback={null}>
-          <Graph3D nodes={data.nodes} edges={data.edges} settings={settings} />
-        </Suspense>
+        <Graph3DErrorBoundary>
+          <Suspense fallback={null}>
+            <Graph3D nodes={data.nodes} edges={data.edges} settings={settings} />
+          </Suspense>
+        </Graph3DErrorBoundary>
       </div>
     );
   }
