@@ -224,7 +224,7 @@ export default function App() {
     return (
       <div style={{ width: "100vw", height: "100vh", background: settings.backgroundColor }}>
         {panel}
-        {animating && <Vignette opacity={animOpacity} color={settings.backgroundColor} />}
+        {animating && settings.vignette && <Vignette opacity={animOpacity} color={settings.backgroundColor} />}
         <Graph3DErrorBoundary>
           <Suspense fallback={null}>
             <Graph3D

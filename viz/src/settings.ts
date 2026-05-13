@@ -49,6 +49,9 @@ export interface ViewSettings {
 
   // Motion blur (animation only)
   motionBlur: number; // 0–1 (0 = off)
+
+  // Vignette (animation only)
+  vignette: boolean;
 }
 
 export const DEFAULT_SETTINGS: ViewSettings = {
@@ -89,6 +92,7 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   edgeGlow: 0,
   dofAmount: 0,
   motionBlur: 0.3,
+  vignette: true,
 };
 
 /** Encode settings into a compact URL search string */
@@ -114,6 +118,7 @@ export function settingsToParams(settings: ViewSettings, autoplay = false): stri
   if (settings.edgeGlow !== d.edgeGlow) p.set("eg", String(settings.edgeGlow));
   if (settings.dofAmount !== d.dofAmount) p.set("dof", String(settings.dofAmount));
   if (settings.motionBlur !== d.motionBlur) p.set("mb", String(settings.motionBlur));
+  if (settings.vignette !== d.vignette) p.set("vig", settings.vignette ? "1" : "0");
 
   // Node colors (only if different from default)
   for (const cls of Object.keys(d.nodeColors) as (keyof NodeColors)[]) {
@@ -148,6 +153,7 @@ export function paramsToSettings(search: string): { settings: ViewSettings; auto
   if (p.has("eg")) s.edgeGlow = Number(p.get("eg"));
   if (p.has("dof")) s.dofAmount = Number(p.get("dof"));
   if (p.has("mb")) s.motionBlur = Number(p.get("mb"));
+  if (p.has("vig")) s.vignette = p.get("vig") === "1";
 
   for (const cls of Object.keys(DEFAULT_SETTINGS.nodeColors) as (keyof NodeColors)[]) {
     if (p.has(`nc_${cls}`)) s.nodeColors[cls] = p.get(`nc_${cls}`)!;

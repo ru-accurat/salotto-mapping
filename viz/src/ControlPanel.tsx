@@ -341,6 +341,12 @@ export default function ControlPanel({
                 min={0} max={1} step={0.1} onChange={(v) => update({ dofAmount: v })} />
               <SliderRow label="Motion blur" value={settings.motionBlur}
                 min={0} max={1} step={0.1} onChange={(v) => update({ motionBlur: v })} />
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                <span style={{ fontSize: 11, color: "#ffffffaa" }}>Vignette</span>
+                <input type="checkbox" checked={settings.vignette}
+                  onChange={(e) => update({ vignette: e.target.checked })}
+                  style={{ accentColor: "#5fe6c8" }} />
+              </div>
               <div style={{ display: "flex", gap: 4, marginBottom: 4, marginTop: 6 }}>
                 <button
                   onClick={onPlay}
