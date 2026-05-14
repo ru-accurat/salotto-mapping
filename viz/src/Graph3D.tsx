@@ -487,15 +487,19 @@ export default function Graph3D({
 
     // Bloom pass (if glow > 0)
     if (totalGlow > 0) {
-      // Compute background luminance to set bloom threshold above it —
-      // prevents bright backgrounds from being bloomed into white wash
+      // Adapt bloom to background brightness — UnrealBloomPass is additive,
+      // so on bright backgrounds the halos push everything past 1.0 → white.
+      // Fix: raise threshold above background luminance AND scale strength down.
       const bgColor = new THREE.Color(settingsRef.current.backgroundColor);
       const bgLuminance = 0.299 * bgColor.r + 0.587 * bgColor.g + 0.114 * bgColor.b;
       const bloomThreshold = Math.max(0.1, bgLuminance + 0.15);
+      // Dark bg: full strength | Mid (0.5): ~25% | Bright (0.8+): ~4%
+      const strengthScale = Math.max(0.02, Math.pow(1 - bgLuminance, 2));
+      const bloomStrength = totalGlow * strengthScale;
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        totalGlow * 1.0,
+        bloomStrength,
         0.6,
         bloomThreshold,
       );
