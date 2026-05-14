@@ -487,11 +487,17 @@ export default function Graph3D({
 
     // Bloom pass (if glow > 0)
     if (totalGlow > 0) {
+      // Compute background luminance to set bloom threshold above it —
+      // prevents bright backgrounds from being bloomed into white wash
+      const bgColor = new THREE.Color(settingsRef.current.backgroundColor);
+      const bgLuminance = 0.299 * bgColor.r + 0.587 * bgColor.g + 0.114 * bgColor.b;
+      const bloomThreshold = Math.max(0.1, bgLuminance + 0.15);
+
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
         totalGlow * 1.0,
         0.6,
-        0.1,
+        bloomThreshold,
       );
       composer.addPass(bloomPass);
       bloomPassRef.current = bloomPass;
@@ -550,7 +556,7 @@ export default function Graph3D({
         afterimagePassRef.current = null;
       }
     };
-  }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, settings.motionBlur, animating]);
+  }, [settings.nodeGlow, settings.edgeGlow, settings.dofAmount, settings.motionBlur, settings.backgroundColor, animating]);
 
   if (error) {
     return (
